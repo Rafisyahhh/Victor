@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('user.index');
+});
+Route::get('/admin/dashboard', function () {
+    return view('admin.master');
 });
 
 Auth::routes();
