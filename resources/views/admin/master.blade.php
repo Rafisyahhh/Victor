@@ -105,7 +105,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="waves-effect">
+                                <a href="{{ route('kategori') }}" class="waves-effect">
                                     <i class="bx bx-user-circle"></i>
                                     <span key="t-chat">Kategori</span>
                                 </a>

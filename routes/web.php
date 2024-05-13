@@ -30,9 +30,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/kategori', [kategoriController::class,'index'])->name('kategori');
-Route::get('/kategori/create', [kategoriController::class,'create'])->name('kategori.create');
-Route::post('/kategori/store', [kategoriController::class,'store'])->name('kategori.store');
-Route::get('/kategori/edit/{kategori}',[kategoriController::class,'edit'])->name('kategori.edit');
-Route::put('/kategori/update/{kategori}',[kategoriController::class,'update'])->name('kategori.update');
-Route::delete('/kategori/{id}', [kategoriController::class,'destroy'])->name('kategori.destroy');
+Route::get('/kategori', [KategoriController::class,'index'])->name('kategori');
+Route::get('/kategori/create', [KategoriController::class,'create'])->name('kategori.create');
+Route::post('/kategori/store', [KategoriController::class,'store'])->name('kategori.store');
+Route::get('/kategori/edit/{kategori}',[KategoriController::class,'edit'])->name('kategori.edit');
+Route::put('/kategori/update/{kategori}',[KategoriController::class,'update'])->name('kategori.update');
+Route::delete('/kategori/{id}', [KategoriController::class,'destroy'])->name('kategori.destroy');

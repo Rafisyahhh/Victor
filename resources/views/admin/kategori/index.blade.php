@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('admin.master')
 @section('content')
 
 <div class="card">
@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($kategori as $kategori)
+                    @foreach ($kategori as $item)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $kategori->nama_kategori }}</td>
@@ -44,7 +44,7 @@
 
     </div>
 </div>
-
-
 @endsection
+
+
 
