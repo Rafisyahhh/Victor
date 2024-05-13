@@ -105,7 +105,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/siswa" class="waves-effect">
+                                <a href="" class="waves-effect">
                                     <i class="bx bx-user-circle"></i>
                                     <span key="t-chat">Kategori</span>
                                 </a>
