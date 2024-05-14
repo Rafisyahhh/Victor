@@ -14,7 +14,7 @@ class PosisiController extends Controller
      */
     public function index()
     {
-        $posisi = Posisi::all();
+        $posisi = Posisi::orderBy('id', 'desc')->get();
         return view('admin.posisi.index', compact('posisi'));
     }
 

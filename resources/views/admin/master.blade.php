@@ -95,29 +95,19 @@
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" key="t-menu">Menu</li>
                             <li>
-                                <a href="/master" class="waves-effect">
+                                <a href="/dash" class="waves-effect">
                                     <i class="bx bx-home"></i>
                                     <span key="t-chat">Dashboard</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{route('kategori')}}" class="waves-effect">
-                                    <i class="bx bx-user-circle"></i>
+                                    <i class="bx bxs-widget"></i>
                                     <span key="t-chat">Kategori</span>
                                 </a>
                             </li>
                             <li>
-<<<<<<< Updated upstream
                                 <a href="{{route('posisi')}}" class="waves-effect">
-=======
-                                <a href="" class="waves-effect">
-                                    <i class="mdi mdi-buffer "></i>
-                                    <span key="t-chat">Gaji</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="waves-effect">
->>>>>>> Stashed changes
                                     <i class="mdi mdi-city "></i>
                                     <span key="t-chat">Posisi</span>
                                 </a>
@@ -223,7 +213,6 @@
                     <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
                 </div>
 
-<<<<<<< Updated upstream
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -308,24 +297,6 @@
     <!-- App js -->
     <script src="{{asset('assets/js/app.js')}}"></script>
 </body>
-=======
-        <!-- JAVASCRIPT -->
-        <script src="{{asset ('assets/libs/jquery/jquery.min.js')}}"></script>
-        <script src="{{asset ('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset ('assets/libs/metismenu/metisMenu.min.js')}}"></script>
-        <script src="{{asset ('assets/libs/simplebar/simplebar.min.js')}}"></script>
-        <script src="{{asset ('assets/libs/node-waves/waves.min.js')}}"></script>
-
-        <!-- apexcharts -->
-        <script src="{{asset ('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
-
-        <!-- dashboard init -->
-        <script src="{{asset ('assets/js/pages/dashboard.init.js')}}"></script>
-
-        <!-- App js -->
-        <script src="{{asset ('assets/js/app.js')}}"></script>
-    </body>
->>>>>>> Stashed changes
 
 
 <!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Dec 2023 01:39:04 GMT -->

@@ -13,7 +13,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::all();
+        $kategori = Kategori::orderBy('id', 'desc')->get();
         return view("admin.kategori.index", compact("kategori"));
     }
 
@@ -33,19 +33,9 @@ class KategoriController extends Controller
      */
     public function store(StorekategoriRequest $request)
     {
-<<<<<<< Updated upstream
-
-=======
-      
->>>>>>> Stashed changes
         $kategori = kategori::create($request->all());
         $input['nama_kategori'] = $request->nama_kategori;
-
-<<<<<<< Updated upstream
-        return redirect()->route("admin.kategori.index")->with("success", "Berhasil Menamabah Data");
-=======
         return redirect()->route("kategori")->with("success","Berhasil Menamabah Data");
->>>>>>> Stashed changes
     }
 
     /**
@@ -93,16 +83,11 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   
+        public function destroy(string $id)
     {
-        try {
-            // dd($id);
-
-            $extra = kategori::findOrFail($id);
-            $extra->delete();
-            return redirect()->route('kategori')->with('success', 'Berhasil Menghapus Data');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'gagal menghapus ');
-        }
+        $kategori=kategori::where('id','=',$id)->delete();
+        return redirect()->back();
     }
 }
+

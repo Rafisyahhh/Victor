@@ -42,4 +42,26 @@
 
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function showConfirmation(form) {
+    Swal.fire({
+        title: 'Yakin ingin menghapus?',
+        text: "Tindakan ini tidak dapat dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Ya, hapus saja!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Mengirim formulir yang berada di dalam elemen form yang di-klik
+            form.submit();
+        }
+    });
+}
+
+</script>
 @endsection

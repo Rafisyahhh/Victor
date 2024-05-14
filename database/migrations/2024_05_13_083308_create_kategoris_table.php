@@ -13,11 +13,7 @@ return new class extends Migration
     {
         Schema::create('kategoris', function (Blueprint $table) {
             $table->id();
-<<<<<<< Updated upstream
-            $table->string('nama_kategori')->uniqid();
-=======
             $table->string('nama_kategori');
->>>>>>> Stashed changes
             $table->timestamps();
         });
     }
