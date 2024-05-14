@@ -33,9 +33,7 @@
     </style>
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{'image/victor.png'}}" alt="" width="200px">
-            </a>
+            <a class="navbar-brand text-light fw-bold" href="#">VICTOR WORK</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,9 +48,23 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light" href="/perusahaan">Daftar Perusahaan</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
                 </ul>
-                <a href="/login" class="btn btn-light fs-6 btn-sm text-light me-2 rounded-pill" style="background-color:#86efac">Masuk</a>
-                <a href="/register" class="btn btn-light fs-6 btn-sm text-light rounded-pill" style="background-color:#86efac">Daftar</a>
             </div>
         </div>
     </nav>

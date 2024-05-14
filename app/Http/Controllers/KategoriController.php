@@ -15,7 +15,6 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::orderBy("created_at", "DESC")->get();
         return view("admin.kategori.index", compact("kategori"));
-    
     }
 
     /**
@@ -34,10 +33,10 @@ class KategoriController extends Controller
      */
     public function store(StorekategoriRequest $request)
     {
-        
+
         $kategori = kategori::create($request->all());
 
-        return redirect()->route("admin.kategori.index")->with("success","Berhasil Menamabah Data");
+        return redirect()->route("admin.kategori.index")->with("success", "Berhasil Menamabah Data");
     }
 
     /**
@@ -87,12 +86,11 @@ class KategoriController extends Controller
         try {
             // dd($id);
 
-        $extra = kategori::findOrFail($id);
-        $extra->delete();
-        return redirect()->route('kategori')->with('success', 'Berhasil Menghapus Data');
-
-    } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'gagal menghapus ');
-    }
+            $extra = kategori::findOrFail($id);
+            $extra->delete();
+            return redirect()->route('kategori')->with('success', 'Berhasil Menghapus Data');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'gagal menghapus ');
+        }
     }
 }
