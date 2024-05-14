@@ -5,6 +5,9 @@ use App\Http\Controllers\PosisiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LowonganController;
+use App\Http\Controllers\PerusahaanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +26,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/lowongan', [LowonganController::class, 'index'])->name('lowongan');
+    Route::get('/perusahaan', [PerusahaanController::class, 'index'])->name('perusahaan');
+    Route::get('/detailperusahaan', function () {
+        return view('user.detailperusahaan');
+    });
+    Route::get('/detaillowongan', function () {
+        return view('user.detaillowongan');
+    });
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dash', [MasterController::class, 'index'])->name('dash');

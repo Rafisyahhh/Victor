@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{'image/victor.png'}}" alt="" width="200px">
+                <img src="{{'image/victor.png'}}" alt="" width="200px" style="border-radius:20px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,10 +45,10 @@
                         <a class="nav-link active text-light fw-bold" aria-current="page" href="#">Beranda</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-light" href="/lowongan">Lowongan Kerja</a>
+                        <a class="nav-link text-light" href="/login">Lowongan Kerja</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-light" href="/perusahaan">Daftar Perusahaan</a>
+                        <a class="nav-link text-light" href="/login">Daftar Perusahaan</a>
                     </li>
                 </ul>
                 <a href="/login" class="btn btn-light fs-6 btn-sm text-light me-2 rounded-pill" style="background-color:#86efac">Masuk</a>
@@ -64,7 +64,7 @@
             <div class="col-12 col-md-6">
                 <h1 class="fw-bold text text-center" style="color:#fde047">VICTOR WORK</h1>
                 <p class="text-dark fs-5 text-center">Website lowongan kerja untuk peluang karier di Dunia Informatika.</p>
-                <a href="/data" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
+                <a href="/login" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
             </div>
         </div>
     </div>

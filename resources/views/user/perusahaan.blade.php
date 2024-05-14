@@ -28,14 +28,16 @@
     </style>
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
-            <a class="navbar-brand text-light fw-bold" href="#">VICTOR WORK</a>
+            <a class="navbar-brand" href="#">
+                <img src="{{'image/victor.png'}}" alt="" width="200px" style="border-radius:20px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-light" aria-current="page" href="/">Beranda</a>
+                        <a class="nav-link text-light" aria-current="page" href="/home">Beranda</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light" href="/lowongan">Lowongan Kerja</a>
@@ -44,8 +46,22 @@
                         <a class="nav-link text-light active fw-bold" href="/perusahaan">Daftar Perusahaan</a>
                     </li>
                 </ul>
-                <button class="btn btn-light fs-6 btn-sm text-light me-2 rounded-pill" style="background-color:#86efac">Masuk</button>
-                <button class="btn btn-light fs-6 btn-sm text-light rounded-pill" style="background-color:#86efac">Daftar</button>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="">Profil</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
             </div>
         </div>
     </nav>
@@ -61,7 +77,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <button class="btn btn-light fs-6 text-light btn-sm" style="background-color:#4ade80">Lihat Perusahaan</button>
+                        <a href="/detailperusahaan" class="btn btn-light fs-6 text-light btn-sm" style="background-color:#4ade80">Lihat Perusahaan</a>
                     </div>
                 </div>
             </div>

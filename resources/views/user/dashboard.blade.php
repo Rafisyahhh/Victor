@@ -33,7 +33,9 @@
     </style>
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
-            <a class="navbar-brand text-light fw-bold" href="#">VICTOR WORK</a>
+            <a class="navbar-brand" href="#">
+                <img src="{{'image/victor.png'}}" alt="" width="200px" style="border-radius:20px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,23 +50,22 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light" href="/perusahaan">Daftar Perusahaan</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
                 </ul>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">Profil</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
@@ -76,7 +77,7 @@
             <div class="col-12 col-md-6">
                 <h1 class="fw-bold text text-center" style="color:#fde047">VICTOR WORK</h1>
                 <p class="text-dark fs-5 text-center">Website lowongan kerja untuk peluang karier di Dunia Informatika.</p>
-                <a href="/data" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
+                <a href="/lowongan" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
             </div>
         </div>
     </div>

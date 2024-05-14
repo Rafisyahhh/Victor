@@ -38,7 +38,9 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-
+                        <a href="#">
+                            <img src="{{'image/victor.png'}}" alt="" width="200px" style="margin-top:20px">
+                        </a>
                     </div>
 
                     <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
@@ -86,7 +88,6 @@
 
         <!-- ========== Left Sidebar Start ========== -->
         <div class="vertical-menu">
-
             <div data-simplebar class="h-100">
 
                     <!--- Sidemenu -->
@@ -125,8 +126,10 @@
                     </div>
                     <!-- Sidebar -->
                 </div>
+                <!-- Sidebar -->
             </div>
-            <!-- Left Sidebar End -->
+        </div>
+        <!-- Left Sidebar End -->
 
 
 
@@ -232,54 +235,54 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @foreach ($errors->all() as $message) 
+
+    @foreach ($errors->all() as $message)
     <script>
         Swal.fire({
-                title: "{{$message}}",
-                icon: "error"
-            });
+            title: "{{$message}}",
+            icon: "error"
+        });
     </script>
     @endforeach
     @if(session('success'))
-        @php($message = session('success'))
-        @if(is_string($message))
-            <script>
-                Swal.fire({
-                    title: "{{$message}}",
-                    icon: "success"
-                });
-            </script>
-        @elseif(is_array($message))
-            @foreach ($message as $msg)
-                <script>
-                    Swal.fire({
-                        title: "{{$msg}}",
-                        icon: "success"
-                    });
-                </script>
-            @endforeach
-        @endif
+    @php($message = session('success'))
+    @if(is_string($message))
+    <script>
+        Swal.fire({
+            title: "{{$message}}",
+            icon: "success"
+        });
+    </script>
+    @elseif(is_array($message))
+    @foreach ($message as $msg)
+    <script>
+        Swal.fire({
+            title: "{{$msg}}",
+            icon: "success"
+        });
+    </script>
+    @endforeach
+    @endif
     @endif
     @if(session('error'))
-        @php($message = session('error'))
-        @if(is_string($message))
-            <script>
-                Swal.fire({
-                    title: "{{$message}}",
-                    icon: "error"
-                });
-            </script>
-        @elseif(is_array($message))
-            @foreach ($message as $msg)
-                <script>
-                    Swal.fire({
-                        title: "{{$msg}}",
-                        icon: "error"
-                    });
-                </script>
-            @endforeach
-        @endif
+    @php($message = session('error'))
+    @if(is_string($message))
+    <script>
+        Swal.fire({
+            title: "{{$message}}",
+            icon: "error"
+        });
+    </script>
+    @elseif(is_array($message))
+    @foreach ($message as $msg)
+    <script>
+        Swal.fire({
+            title: "{{$msg}}",
+            icon: "error"
+        });
+    </script>
+    @endforeach
+    @endif
     @endif
     <!-- JAVASCRIPT -->
     <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
