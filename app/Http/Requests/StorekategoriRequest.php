@@ -11,7 +11,7 @@ class StorekategoriRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StorekategoriRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama_kategori'=>'required'
+        ];
+    }
+    public function messages()
+    {
+        return[
+            'nama_kategori.required'=>'nama kategori tidak boleh kosong'
+     
         ];
     }
 }

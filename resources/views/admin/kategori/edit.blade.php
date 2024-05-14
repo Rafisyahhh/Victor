@@ -9,7 +9,7 @@
            <div class="form-group">
                <label>kategori:</label>
                <input type="text" name="nama_kategori" class="form-control" placeholder="Masukan kategori" value="{{ $kategori->nama_kategori }}" />
-               @error('nam_kategori')
+               @error('nama_kategori')
                <span class="text-danger">{{ $message }}</span>
            @enderror
            </div>

@@ -40,3 +40,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/kategori/update/{kategori}', [kategoriController::class, 'update'])->name('kategori.update');
     Route::delete('/kategori/{id}', [kategoriController::class, 'destroy'])->name('kategori.destroy');
 });
+<<<<<<< Updated upstream
+=======
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/kategori', [KategoriController::class,'index'])->name('kategori');
+Route::get('/kategori/create', [KategoriController::class,'create'])->name('kategori.create');
+Route::post('/kategori/store', [KategoriController::class,'store'])->name('kategori.store');
+Route::get('/kategori/edit/{kategori}',[KategoriController::class,'edit'])->name('kategori.edit');
+Route::put('/kategori/update/{kategori}',[KategoriController::class,'update'])->name('kategori.update');
+Route::delete('/kategori/{kategori}', [KategoriController::class,'destroy'])->name('kategori.destroy');
+>>>>>>> Stashed changes
