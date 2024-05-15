@@ -28,7 +28,9 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/lowongan', [LowonganController::class, 'index'])->name('lowongan');
-    Route::get('/perusahaan', [PerusahaanController::class, 'index'])->name('perusahaan');
+    Route::get('/daftarperusahaan', function () {
+        return view('user.perusahaan');
+    });
     Route::get('/detailperusahaan', function () {
         return view('user.detailperusahaan');
     });
@@ -37,13 +39,22 @@ Route::middleware('auth')->group(function () {
     });
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::controller(PerusahaanController::class)->group(function () {
+        Route::get('/perusahaan', 'index')->name('perusahaan');
+        Route::get('/perusahaan/create', 'create')->name('perusahaan.create');
+        Route::post('/perusahaan/store', 'store')->name('perusahaan.store');
+        Route::get('/perusahaan/edit/{perusahaan}', 'edit')->name('perusahaan.edit');
+        Route::put('/perusahaan/update/{perusahaan}', 'update')->name('perusahaan.update');
+        Route::delete('/perusahaan/destroy/{perusahaan}', 'destroy')->name('perusahaan.destroy');
+    });
     Route::get('/dash', [MasterController::class, 'index'])->name('dash');
     Route::get('/posisi', [PosisiController::class, 'index'])->name('posisi');
     Route::get('/posisi/create', [PosisiController::class, 'create'])->name('posisi.create');
     Route::post('/posisi/store', [PosisiController::class, 'store'])->name('posisi.store');
     Route::get('/posisi/edit/{posisi}', [PosisiController::class, 'edit'])->name('posisi.edit');
     Route::put('/posisi/update/{posisi}', [PosisiController::class, 'update'])->name('posisi.update');
-    Route::get('/posisi/destroy{posisi}', [PosisiController::class, 'destroy'])->name('posisi.destroy');
+    Route::delete('/posisi/{posisi}', [PosisiController::class, 'destroy'])->name('posisi.destroy');
+
     Route::get('/kategori', [kategoriController::class, 'index'])->name('kategori');
     Route::get('/kategori/create', [kategoriController::class, 'create'])->name('kategori.create');
     Route::post('/kategori/store', [kategoriController::class, 'store'])->name('kategori.store');

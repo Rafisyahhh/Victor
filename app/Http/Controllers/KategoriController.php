@@ -87,7 +87,7 @@ class KategoriController extends Controller
         public function destroy(string $id)
     {
         $kategori=kategori::where('id','=',$id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }
 

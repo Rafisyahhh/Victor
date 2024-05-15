@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perusahaan;
+use App\Models\Kategori;
+use Illuminate\Support\Str;
+use App\Http\Requests\StorePerusahaanRequest;
 use Illuminate\Http\Request;
 
 class PerusahaanController extends Controller
@@ -11,7 +15,8 @@ class PerusahaanController extends Controller
      */
     public function index()
     {
-        return view('user.perusahaan');
+        $perusahaan = Perusahaan::all();
+        return view('admin.perusahaan.index', compact('perusahaan'));
     }
 
     /**
@@ -19,15 +24,31 @@ class PerusahaanController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = Kategori::all();
+        return view('admin.perusahaan.create', compact('kategori'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePerusahaanRequest $request)
     {
-        //
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $ekstensi = $foto->getClientOriginalExtension();
+            $namaFoto = Str::random(10) . '.' . $ekstensi;
+            $foto->move(public_path('image'), $namaFoto);
+        } else {
+            $namaFoto = null;
+        }
+        $perusahaan = Perusahaan::create([
+            'nama_perusahaan' => $request->nama_perusahaan,
+            'id_kategori' => $request->nama_kategori,
+            'no_telp' => $request->no_telp,
+            'deskripsi' => $request->deskripsi,
+            'foto' => $namaFoto,
+        ]);
+        return redirect()->route("perusahaan")->with("success", "Berhasil Menamabah Data");
     }
 
     /**
@@ -43,7 +64,9 @@ class PerusahaanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $perusahaan = Perusahaan::findOrFail($id);
+        $kategori = Kategori::all();
+        return view('admin.perusahaan.edit', compact('perusahaan', 'kategori'));
     }
 
     /**
@@ -51,7 +74,49 @@ class PerusahaanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [
+                'nama_perusahaan' => 'required|unique:perusahaans,nama_perusahaan,'. $id . ',id',
+                'nama_kategori' => 'required',
+                'foto' => 'required|image|mimes:jpeg,png,jpg',
+                'no_telp' => 'required|numeric|unique:perusahaans,no_telp,'. $id . ',id',
+                'deskripsi' => 'required',
+            ],
+            [
+                'nama_perusahaan.required' => 'perusahaan harus diisi',
+                'nama_perusahaan.unique' => 'Perusahaan sudah ada',
+                'nama_kategori.required' => 'Kategori harus diisi',
+                'foto.required' => 'Form tidak boleh kosong',
+                'foto.image' => 'File harus berupa gambar',
+                'foto.mimes' => 'Format file gambar harus jpeg, png, atau jpg',
+                'no_telp.required' => 'Form tidak boleh kosong',
+                'no_telp.digits_between' => 'No Telp harus 10-12 angka',
+                'no_telp.unique' => 'No Telp sudah digunakan',
+                'deskripsi.required' => 'Deskripsi harus diisi',
+            ]
+        );
+        $perusahaan = Perusahaan::findOrFail($id);
+        $namaFoto = null;
+        if ($request->hasFile('foto')) {
+            //hapus foto sebelumnya
+            if ($perusahaan->foto !== null && file_exists(public_path('image/') . $perusahaan->foto)) {
+                unlink(public_path('image/') . $perusahaan->foto);
+            }
+            $foto = $request->file('foto');
+            $ekstensi = $foto->getClientOriginalExtension();
+            $namaFoto = Str::random(10) . '.' . $ekstensi;
+            $foto->move(public_path('image'), $namaFoto);
+        } else {
+            $namaFoto = $perusahaan->foto;
+        }
+        $perusahaan = Perusahaan::where('id', $id)->update([
+            'nama_perusahaan' => $request->nama_perusahaan,
+            'id_kategori' => $request->nama_kategori,
+            'no_telp' => $request->no_telp,
+            'deskripsi' => $request->deskripsi,
+            'foto' => $namaFoto,
+        ]);
+        return redirect()->route('perusahaan')->with('success', 'Berhasil Mengubah Data');
     }
 
     /**
@@ -59,6 +124,11 @@ class PerusahaanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $perusahaan = Perusahaan::findOrFail($id);
+        if ($perusahaan->foto !== null && file_exists(public_path('image/') . $perusahaan->foto)) {
+            unlink(public_path('image/') . $perusahaan->foto);
+        }
+        $perusahaan ->delete();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }

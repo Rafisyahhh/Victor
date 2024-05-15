@@ -90,86 +90,91 @@
         <div class="vertical-menu">
             <div data-simplebar class="h-100">
 
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <!-- Left Menu Start -->
-                        <ul class="metismenu list-unstyled" id="side-menu">
-                            <li class="menu-title" key="t-menu">Menu</li>
-                            <li>
-                                <a href="/dash" class="waves-effect">
-                                    <i class="bx bx-home"></i>
-                                    <span key="t-chat">Dashboard</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('kategori')}}" class="waves-effect">
-                                    <i class="bx bxs-widget"></i>
-                                    <span key="t-chat">Kategori</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{route('posisi')}}" class="waves-effect">
-                                    <i class="mdi mdi-city "></i>
-                                    <span key="t-chat">Posisi</span>
-                                </a>
-                            </li>
-                          
-                                
-                                <li>
-                                    <a href="" class="waves-effect">
-                                      <i class="bx bx-user-circle"></i>
-                                      <span key="t-user">User</span>
-                                    </a>
-                                  </li>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Sidebar -->
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" key="t-menu">Menu</li>
+                        <li>
+                            <a href="/dash" class="waves-effect">
+                                <i class="bx bx-home"></i>
+                                <span key="t-chat">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('perusahaan')}}" class="waves-effect">
+                                <i class="bx bxs-widget"></i>
+                                <span key="t-chat">Perusahaan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('kategori')}}" class="waves-effect">
+                                <i class="bx bxs-widget"></i>
+                                <span key="t-chat">Kategori</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('posisi')}}" class="waves-effect">
+                                <i class="mdi mdi-city "></i>
+                                <span key="t-chat">Posisi</span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="" class="waves-effect">
+                                <i class="bx bx-user-circle"></i>
+                                <span key="t-user">User</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <!-- Sidebar -->
             </div>
+            <!-- Sidebar -->
         </div>
-        <!-- Left Sidebar End -->
+    </div>
+    <!-- Left Sidebar End -->
 
 
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
 
-            <div class="page-content">
-                @yield('content')
+        <div class="page-content">
+            @yield('content')
 
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
+            <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
 
-            <!-- Transaction Modal -->
-            <!-- end modal -->
+        <!-- Transaction Modal -->
+        <!-- end modal -->
 
-            <!-- subscribeModal -->
+        <!-- subscribeModal -->
 
-            <!-- end modal -->
+        <!-- end modal -->
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().())
-                            </script> Dimas Gani W
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>
+                            document.write(new Date().())
+                        </script> Victor Work
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
 
-                            </div>
                         </div>
                     </div>
                 </div>
-            </footer>
-        </div>
-        <!-- end main content-->
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
 
     </div>
     <!-- END layout-wrapper -->
@@ -235,7 +240,7 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Sweet Alert -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @foreach ($errors->all() as $message)
     <script>
         Swal.fire({

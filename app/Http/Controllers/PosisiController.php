@@ -87,6 +87,6 @@ class PosisiController extends Controller
     public function destroy(string $id)
     {
         $posisi=Posisi::where('id','=',$id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }

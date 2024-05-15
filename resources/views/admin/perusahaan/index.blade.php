@@ -6,8 +6,8 @@
         <div class="d-flex justify-content-between">
 
 
-            <p class="fw-bold fs-5">Data Posisi</p>
-            <a href="{{ route('posisi.create') }}" class="btn btn-primary ">Tambah Posisi</a>
+            <p class="fw-bold fs-5">Data Perusahaan</p>
+            <a href="{{ route('perusahaan.create') }}" class="btn btn-primary ">Tambah Perusahaan</a>
         </div>
 
         <div class="table-responsive">
@@ -16,18 +16,26 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Posisi</th>
+                        <th>Foto</th>
+                        <th>Nama Perusahaan</th>
+                        <th>Kategori Perusahaan</th>
+                        <th>No Telp</th>
+                        <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($posisi as $item)
+                    @foreach ($perusahaan as $item)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $item->nama_posisi }}</td>
+                        <td><img src="{{ asset('image/' . $item->foto) }}" alt="{{ $item->nama}}" width="100"></td>
+                        <td>{{ $item->nama_perusahaan }}</td>
+                        <td>{{ $item->kategori->nama_kategori }}</td>
+                        <td>{{ $item->no_telp }}</td>
+                        <td>{{ $item->deskripsi }}</td>
                         <td class="d-flex  gap-2 justify-content-center">
-                            <a href="{{ route('posisi.edit', $item->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
-                            <form action="{{ route('posisi.destroy', $item->id) }}" class="form-delete" method="post">
+                            <a href="{{ route('perusahaan.edit', $item->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                            <form action="{{ route('perusahaan.destroy', $item->id) }}" class="form-delete" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" onclick="showConfirmation(this.parentNode)" type="button"><i
@@ -37,6 +45,7 @@
                     </tr>
                     @endforeach
                 </tbody>
+
             </table>
         </div>
 
