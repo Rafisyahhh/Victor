@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Victor Work - Lowongan</title>
+    <title>Victor Work - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -69,32 +69,35 @@
             </div>
         </div>
     </nav>
-    <div class="container" style="margin-top:75px">
-        <div class="row">
-            <div class="col-12 col-md-5">
-                <img src="{{asset('image/humma.jpg')}}" alt="" class="image hidden" width="400px" style="border-radius:20px;border-width: 5px;border-color:#4ade80">
-            </div>
-            <div class="col-12 col-md-7">
-                <h1 class="fw-bold" style="margin-top:100px">PT Hummatech Indonesia</h1>
-                <div class="container">
+    <div class="container" style="margin-top:100px">
+        <div class="card mb-3 mt-4 mx-auto" style="width: 800px;background-color:#dcfce7;">
+            <div class="row g-0">
+                <div class="col-5">
+                    <img src="{{ asset('image/humma.jpg') }}" alt="" width="300" style="border-radius:40px;padding:20px;">
+                </div>
+                <div class="col-7" style="margin-top:30px">
                     <div class="row">
-                        <div class="col-4">
-                            <p class="text-dark fs-6"><i class="bi bi-sticky"></i> Posisi</p>
-                            <p class="text-dark fs-6"><i class="bi bi-cash"></i> Gaji</p>
-                            <p class="text-dark fs-6"><i class="bi bi-person-workspace"></i> Ketentuan Kerja</p>
-                            <p class="text-dark fs-6"><i class="bi bi-geo-alt"></i> Tempat Kerja</p>
-                            <p class="text-dark fs-6"><i class="bi bi-alarm"></i> Waktu Kerja</p>
+                        <div class="col-5">
+                            <h1 class="fs-4">Nama</h1>
+                            <h1 class="fs-4">Jenis Kelamin</h1>
+                            <h1 class="fs-4">Tanggal Lahir</h1>
+                            <h1 class="fs-4">Tempat Lahir</h1>
+                            <h1 class="fs-4">No Telp</h1>
+                            <h1 class="fs-4">Alamat</h1>
                         </div>
-                        <div class="col-8">
-                            <p class="text-dark fs-6">: Web Development</p>
-                            <p class="text-dark fs-6">: 1.000.000</p>
-                            <p class="text-dark fs-6">: Onsite</p>
-                            <p class="text-dark fs-6">: Malang</p>
-                            <p class="text-dark fs-6">: 8 Jam</p>
+                        <div class="col-6">
+                            <h1 class="fs-4">: Moh Akbar</h1>
+                            <h1 class="fs-4">: Laki Laki</h1>
+                            <h1 class="fs-4">: 10-10-2000</h1>
+                            <h1 class="fs-4">: Blitar</h1>
+                            <h1 class="fs-4">: 085746987654</h1>
+                            <h1 class="fs-4">: Wlingi</h1>
+                        </div>
+                        <div class="d-grid gap-2 mx-auto container" style="width: 100%;padding:20px">
+                            <a href="/detaillowongan" class="btn btn-light text-light" style="background-color:#4ade80">Edit Profil</a>
                         </div>
                     </div>
                 </div>
-                <a href="/perusahaan" class="btn btn-light text-light" style="background-color:#4ade80;">Lamar Kerja</a>
             </div>
         </div>
     </div>

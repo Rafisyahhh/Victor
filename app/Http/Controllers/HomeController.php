@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lowongan;
+use App\Models\Perusahaan;
+use App\Models\Posisi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.dashboard');
+        $lowongan = Lowongan::all();
+        return view('user.dashboard', compact('lowongan'));
     }
 }

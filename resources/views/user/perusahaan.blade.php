@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{'image/victor.png'}}" alt="" width="200px" style="border-radius:20px;">
+             <img src="{{'image/vic.png'}}" alt="" width="200px" style="border-radius:20px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                         <a class="nav-link text-light" aria-current="page" href="/home">Beranda</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-light" href="/lowongan">Lowongan Kerja</a>
+                        <a class="nav-link text-light" href="/daftarlowongan">Lowongan Kerja</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light active fw-bold" href="/daftarperusahaan">Daftar Perusahaan</a>

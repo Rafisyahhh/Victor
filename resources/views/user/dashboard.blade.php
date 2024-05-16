@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{'image/victor.png'}}" alt="" width="200px" style="border-radius:20px;">
+                <img src="{{'image/vic.png'}}" alt="" width="200px" style="border-radius:20px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
                         <a class="nav-link active text-light fw-bold" aria-current="page" href="#">Beranda</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-light" href="/lowongan">Lowongan Kerja</a>
+                        <a class="nav-link text-light" href="/daftarlowongan">Lowongan Kerja</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light" href="/daftarperusahaan">Daftar Perusahaan</a>
@@ -56,7 +56,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="">Profil</a>
+                    <a class="dropdown-item" href="/profil">Profil</a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -95,88 +95,22 @@
         </div>
     </div>
     <div class="py-2">
-        <div class="container">
-            <h1 class="fs-2 text-center" style="color:#4ade80">Lowongan Pekerjaan</h1>
-            <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card-wrapper" style="display:flex">
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card-wrapper" style="display:flex">
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <h1 class="fs-2 text-center" style="color:#4ade80">Lowongan Pekerjaan</h1>
+        <div class="card-wrapper mt-4" style="display:flex">
+            @foreach ($lowongan as $item)
+            <div class="card rounded mx-auto" style="width: 18rem;background-color:#dcfce7">
+                <img src="{{ asset('image/' . $item->perusahaan->foto) }}" class="card-img-top" alt="{{$item->perusahaan->nama_perusahaan}}">
+                <div class="card-body">
+                    <h5 class="card-title text-center fw-semibold">{{ $item->perusahaan->nama_perusahaan }}</h5>
+                    <p class="text-dark fs-6 text-center"><i class="bi bi-sticky"></i> Posisi: {{$item->posisi->nama_posisi}}</p>
+                    <p class="text-dark fs-6 text-center"><i class="bi bi-cash"></i> Gaji: {{$item->gaji}}</p>
+                    <p class="text-dark fs-6 text-center"><i class="bi bi-geo-alt"></i> Tempat: {{$item->tempat_kerja}}</p>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="/detaillowongan" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
                     </div>
                 </div>
-                <button class="carousel-control-prev carousel-dark" style="width: 100px;" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next carousel-dark" style="width: 100px;" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
+            @endforeach
         </div>
     </div>
     <div class="py-2" style="background-color:#ecfdf5">
