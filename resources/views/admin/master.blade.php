@@ -39,7 +39,7 @@
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
                         <a href="#">
-                            <img src="{{'image/victor.png'}}" alt="" width="200px" style="margin-top:20px">
+                            <img src="{{'image/vic.png'}}" alt="" width="200px" style="margin-top:20px">
                         </a>
                     </div>
 

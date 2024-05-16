@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfilController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,11 +33,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/daftarperusahaan', [PerusahaanController::class, 'indexUser'])->name('daftarperusahaan');
     Route::get('/detailperusahaan{id}', [PerusahaanController::class, 'indexDetail'])->name('detailperusahaan');
     Route::get('/daftarlowongan', [LowonganController::class, 'indexUser'])->name('daftarlowongan');
-    Route::get('/profil', function () {
-        return view('user.profil.profil');
-    });
-    Route::get('/createprofil', function () {
-        return view('user.profil.create');
+    
+    Route::controller(ProfilController::class)->group(function () {
+        Route::get('/profil', 'index')->name('profil');
+        Route::get('/profil/create/{profil}', 'create')->name('profil.create');
+        Route::post('/profil/store/{profil}', 'store')->name('profil.store');
+        Route::get('/profil/edit/{profil}', 'edit')->name('profil.edit');
+        Route::put('/profil/update/{profil}', 'update')->name('profil.update');
+        Route::delete('/profil/destroy/{profil}', 'destroy')->name('profil.destroy');
     });
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
