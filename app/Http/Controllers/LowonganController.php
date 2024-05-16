@@ -84,4 +84,9 @@ class LowonganController extends Controller
         $lowongan=lowongan::where('id','=',$id)->delete();
         return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
+    public function indexUser()
+    {
+        $lowongan = Lowongan::all();
+        return view('user.lowongan', compact('lowongan'));
+    }
 }

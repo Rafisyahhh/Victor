@@ -10,7 +10,7 @@
             <select name="nama_perusahaan" class="form-select" id="basicSelect">
                 <option>Pilih Perusahaan</option>
                 @foreach ($perusahaan as $p)
-                <option value="{{ $p->id }}" {{ old('nama_perusahaan') == $p->id ? 'selected' : '' }}>
+                <option value="{{ $p->id }}" {{ $p->id == $lowongan->id_perusahaan ? 'selected' : '' }}>
                     {{ $p->nama_perusahaan }}
                 </option>
                 @endforeach
@@ -19,26 +19,26 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Gaji:</label>
-            <input type="number" value="{{ old('gaji') }}" name="gaji" class="form-control" placeholder="Masukan Gaji" />
+            <input type="number" value="{{ $lowongan->gaji }}" name="gaji" class="form-control" placeholder="Masukan Gaji" />
             @error('gaji')
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Tempat Kerja:</label>
-            <input type="text" value="{{ old('tempat_kerja') }}" name="tempat_kerja" class="form-control" placeholder="Masukan Tempat Kerja" />
+            <input type="text" value="{{ $lowongan->tempat_kerja }}" name="tempat_kerja" class="form-control" placeholder="Masukan Tempat Kerja" />
             @error('tempat_kerja')
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Waktu Kerja(Jam):</label>
-            <input type="number" value="{{ old('waktu_kerja') }}" name="waktu_kerja" class="form-control" placeholder="Masukan Waktu Kerja" />
+            <input type="number" value="{{ $lowongan->waktu_kerja }}" name="waktu_kerja" class="form-control" placeholder="Masukan Waktu Kerja" />
             @error('waktu_kerja')
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label for="alamat">Posisi: </label>
             <select name="nama_posisi" class="form-select" id="basicSelect">
                 <option>Pilih Posisi</option>
-                @foreach ($posisi as $o)
-                <option value="{{ $o->id }}" {{ old('nama_posisi') == $o->id ? 'selected' : '' }}>
-                    {{ $o->nama_posisi }}
+                @foreach ($posisi as $p)
+                <option value="{{ $p->id }}" {{ $p->id == $lowongan->id_posisi ? 'selected' : '' }}>
+                    {{ $p->nama_posisi }}
                 </option>
                 @endforeach
             </select>
@@ -46,7 +46,7 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Ketentuan Kerja:</label>
-            <input type="text" value="{{ old('ketentuan_kerja') }}" name="ketentuan_kerja" class="form-control" placeholder="Masukan Ketentuan Kerja" />
+            <input type="text" value="{{ $lowongan->tempat_kerja }}" name="ketentuan_kerja" class="form-control" placeholder="Masukan Ketentuan Kerja" />
             @error('ketentuan_kerja')
             <span class="text-danger">{{ $message }}</span>
             @enderror

@@ -31,8 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/lowongan', [LowonganController::class, 'index'])->name('lowongan');
     Route::get('/daftarperusahaan', [PerusahaanController::class, 'indexUser'])->name('daftarperusahaan');
     Route::get('/detailperusahaan{id}', [PerusahaanController::class, 'indexDetail'])->name('detailperusahaan');
-    Route::get('/detaillowongan', function () {
-        return view('user.detaillowongan');
+    Route::get('/daftarlowongan', [LowonganController::class, 'indexUser'])->name('daftarlowongan');
+    Route::get('/profil', function () {
+        return view('user.profil.profil');
+    });
+    Route::get('/createprofil', function () {
+        return view('user.profil.create');
     });
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {

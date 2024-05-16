@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#4ade80;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{'image/victor.png'}}" alt="" width="200px" style="border-radius:20px;">
+                <img src="{{'image/vic.png'}}" alt="" width="200px" style="border-radius:20px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
