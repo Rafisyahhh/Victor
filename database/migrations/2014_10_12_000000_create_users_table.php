@@ -18,13 +18,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['admin', 'user'])->default('user');
-            $table->string('avatar')->nullable();
-            $table->string('nama')->nullable();
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->nullable();
-            $table->date('tgl_lahir')->nullable();
-            $table->string('tempat_lahir')->nullable();
-            $table->string('no_telp')->nullable();
-            $table->string('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
