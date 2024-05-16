@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lowongan;
+use App\Models\Posisi;
+use App\Models\Perusahaan;
+use Illuminate\Support\Str;
+use App\Http\Requests\StoreLowonganRequest;
+use App\Http\Requests\UpdateLowonganRequest;
 use Illuminate\Http\Request;
 
 class LowonganController extends Controller
@@ -11,7 +17,8 @@ class LowonganController extends Controller
      */
     public function index()
     {
-        return view('user.lowongan');
+        $lowongan = Lowongan::all();
+        return view('admin.lowongan.index', compact('lowongan'));
     }
 
     /**
@@ -19,15 +26,25 @@ class LowonganController extends Controller
      */
     public function create()
     {
-        //
+        $posisi = Posisi::all();
+        $perusahaan = Perusahaan::all();
+        return view('admin.lowongan.create', compact('posisi', 'perusahaan'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreLowonganRequest $request)
     {
-        //
+        $lowongan = Lowongan::create([
+            'id_perusahaan' => $request->nama_perusahaan,
+            'gaji' => $request->gaji,
+            'tempat_kerja' => $request->tempat_kerja,
+            'waktu_kerja' => $request->waktu_kerja,
+            'id_posisi' => $request->nama_posisi,
+            'ketentuan_kerja' => $request->ketentuan_kerja,
+        ]);
+        return redirect()->route("lowongan")->with("success", "Berhasil Menambah Data");
     }
 
     /**
@@ -43,15 +60,20 @@ class LowonganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $lowongan = Lowongan::findOrFail($id);
+        $perusahaan = Perusahaan::all();
+        $posisi = Posisi::all();
+        return view('admin.lowongan.edit', compact('lowongan', 'perusahaan', 'posisi'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateLowonganRequest $request, Lowongan $lowongan)
     {
-        //
+        $lowongan->update($request->all());
+        return redirect()->route('lowongan')->with('success', 'Berhasil Mengubah Data');
     }
 
     /**
@@ -59,6 +81,7 @@ class LowonganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $lowongan=lowongan::where('id','=',$id)->delete();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }

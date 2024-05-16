@@ -131,4 +131,16 @@ class PerusahaanController extends Controller
         $perusahaan ->delete();
         return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
+
+    public function indexUser()
+    {
+        $perusahaan = Perusahaan::all();
+        return view('user.perusahaan', compact('perusahaan'));
+    }
+    public function indexDetail($id)
+    {
+        $perusahaan = Perusahaan::findOrFail($id);
+        // dd($perusahaan);
+        return view('user.detailperusahaan', compact('perusahaan'));
+    }
 }

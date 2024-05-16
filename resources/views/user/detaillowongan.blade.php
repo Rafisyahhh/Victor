@@ -48,7 +48,7 @@
                         <a class="nav-link text-light" href="/lowongan">Lowongan Kerja</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-light" href="/perusahaan">Daftar Perusahaan</a>
+                        <a class="nav-link text-light" href="/daftarperusahaan">Daftar Perusahaan</a>
                     </li>
                 </ul>
                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

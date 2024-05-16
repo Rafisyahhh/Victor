@@ -8,6 +8,7 @@ use App\Http\Controllers\MasterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,12 +29,8 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/lowongan', [LowonganController::class, 'index'])->name('lowongan');
-    Route::get('/daftarperusahaan', function () {
-        return view('user.perusahaan');
-    });
-    Route::get('/detailperusahaan', function () {
-        return view('user.detailperusahaan');
-    });
+    Route::get('/daftarperusahaan', [PerusahaanController::class, 'indexUser'])->name('daftarperusahaan');
+    Route::get('/detailperusahaan{id}', [PerusahaanController::class, 'indexDetail'])->name('detailperusahaan');
     Route::get('/detaillowongan', function () {
         return view('user.detaillowongan');
     });
@@ -46,6 +43,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/perusahaan/edit/{perusahaan}', 'edit')->name('perusahaan.edit');
         Route::put('/perusahaan/update/{perusahaan}', 'update')->name('perusahaan.update');
         Route::delete('/perusahaan/destroy/{perusahaan}', 'destroy')->name('perusahaan.destroy');
+    });
+    Route::controller(LowonganController::class)->group(function () {
+        Route::get('/lowongan', 'index')->name('lowongan');
+        Route::get('/lowongan/create', 'create')->name('lowongan.create');
+        Route::post('/lowongan/store', 'store')->name('lowongan.store');
+        Route::get('/lowongan/edit/{lowongan}', 'edit')->name('lowongan.edit');
+        Route::put('/lowongan/update/{lowongan}', 'update')->name('lowongan.update');
+        Route::delete('/lowongan/destroy/{lowongan}', 'destroy')->name('lowongan.destroy');
     });
     Route::get('/dash', [MasterController::class, 'index'])->name('dash');
     Route::get('/posisi', [PosisiController::class, 'index'])->name('posisi');
@@ -61,4 +66,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/kategori/edit/{kategori}', [kategoriController::class, 'edit'])->name('kategori.edit');
     Route::put('/kategori/update/{kategori}', [kategoriController::class, 'update'])->name('kategori.update');
     Route::delete('/kategori/{kategori}', [kategoriController::class, 'destroy'])->name('kategori.destroy');
+
+    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });

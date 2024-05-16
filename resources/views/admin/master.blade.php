@@ -102,6 +102,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('lowongan')}}" class="waves-effect">
+                                <i class="bx bxs-widget"></i>
+                                <span key="t-chat">Lowongan</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('perusahaan')}}" class="waves-effect">
                                 <i class="bx bxs-widget"></i>
                                 <span key="t-chat">Perusahaan</span>
@@ -122,7 +128,7 @@
 
 
                         <li>
-                            <a href="" class="waves-effect">
+                            <a href="user" class="waves-effect">
                                 <i class="bx bx-user-circle"></i>
                                 <span key="t-user">User</span>
                             </a>
@@ -167,7 +173,6 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-
                         </div>
                     </div>
                 </div>

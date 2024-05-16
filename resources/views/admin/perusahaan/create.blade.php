@@ -41,7 +41,7 @@
             <div class="d-flex justify-content-end gap-2" style="margin-top: 10px">
 
                 <button type="submit" class="btn btn-primary ml-2">Kirim</button>
-                <a href="{{ route('posisi') }}" type="button" class="btn btn-danger">kembali</a>
+                <a href="{{ route('perusahaan') }}" type="button" class="btn btn-danger">kembali</a>
             </div>
     </form>
 </div>
