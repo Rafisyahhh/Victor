@@ -1,27 +1,62 @@
 @extends('admin.master')
+
 @section('content')
 <div class="card">
     <div class="card-body">
-
-        <h4 class="card-title mb-4">Bar Chart</h4>
-
-        <div class="row text-center">
-            <div class="col-4">
-                <h5 class="mb-0">2541</h5>
-                <p class="text-muted text-truncate">Activated</p>
-            </div>
-            <div class="col-4">
-                <h5 class="mb-0">84845</h5>
-                <p class="text-muted text-truncate">Pending</p>
-            </div>
-            <div class="col-4">
-                <h5 class="mb-0">12001</h5>
-                <p class="text-muted text-truncate">Deactivated</p>
-            </div>
-        </div>
-
-        <canvas id="bar" data-colors="[&quot;--bs-success-rgb, 0.8&quot;, &quot;--bs-success&quot;]" height="300" width="473" style="display: block; box-sizing: border-box; height: 300px; width: 473px;"></canvas>
+        <div id="chart-vacancy"></div>
 
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    var options = {
+          series: [{
+          name: 'Revenue',
+          data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+        }],
+          chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded'
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          show: true,
+          width: 2,
+          colors: ['transparent']
+        },
+        xaxis: {
+          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        },
+        yaxis: {
+          title: {
+            text: 'lowongan'
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return "$ " + val + " thousands"
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart-vacancy"), options);
+        chart.render();
+</script>
 @endsection

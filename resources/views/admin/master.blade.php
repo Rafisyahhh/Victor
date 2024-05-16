@@ -23,6 +23,7 @@
     <!-- App js -->
     <script src="{{asset ('assets/js/plugin.js') }}"></script>
 
+    @yield('style')
 </head>
 
 <body data-sidebar="dark">
@@ -224,75 +225,81 @@
         </div> <!-- end slimscroll-menu-->
     </div>
     <!-- /Right-bar -->
+    
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
+
+
+
     <!-- Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @foreach ($errors->all() as $message)
-    <script>
-        Swal.fire({
-            title: "{{$message}}",
-            icon: "error"
-        });
-    </script>
-    @endforeach
-    @if(session('success'))
-    @php($message = session('success'))
-    @if(is_string($message))
-    <script>
-        Swal.fire({
-            title: "{{$message}}",
-            icon: "success"
-        });
-    </script>
-    @elseif(is_array($message))
-    @foreach ($message as $msg)
-    <script>
-        Swal.fire({
-            title: "{{$msg}}",
-            icon: "success"
-        });
-    </script>
-    @endforeach
-    @endif
-    @endif
-    @if(session('error'))
-    @php($message = session('error'))
-    @if(is_string($message))
-    <script>
-        Swal.fire({
-            title: "{{$message}}",
-            icon: "error"
-        });
-    </script>
-    @elseif(is_array($message))
-    @foreach ($message as $msg)
-    <script>
-        Swal.fire({
-            title: "{{$msg}}",
-            icon: "error"
-        });
-    </script>
-    @endforeach
-    @endif
-    @endif
-    <!-- JAVASCRIPT -->
-    <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/libs/metismenu/metisMenu.min.js')}}"></script>
-    <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ @foreach ($errors->all() as $message)
+ <script>
+     Swal.fire({
+         title: "{{$message}}",
+         icon: "error"
+     });
+ </script>
+ @endforeach
+ @if(session('success'))
+ @php($message = session('success'))
+ @if(is_string($message))
+ <script>
+     Swal.fire({
+         title: "{{$message}}",
+         icon: "success"
+     });
+ </script>
+ @elseif(is_array($message))
+ @foreach ($message as $msg)
+ <script>
+     Swal.fire({
+         title: "{{$msg}}",
+         icon: "success"
+     });
+ </script>
+ @endforeach
+ @endif
+ @endif
+ @if(session('error'))
+ @php($message = session('error'))
+ @if(is_string($message))
+ <script>
+     Swal.fire({
+         title: "{{$message}}",
+         icon: "error"
+     });
+ </script>
+ @elseif(is_array($message))
+ @foreach ($message as $msg)
+ <script>
+     Swal.fire({
+         title: "{{$msg}}",
+         icon: "error"
+     });
+ </script>
+ @endforeach
+ @endif
+ @endif
+ <!-- JAVASCRIPT -->
+ <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
+ <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+ <script src="{{asset('assets/libs/metismenu/metisMenu.min.js')}}"></script>
+ <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+ <script src="{{asset('assets/libs/node-waves/waves.min.js')}}"></script>
 
-    <!-- apexcharts -->
-    <script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+ <!-- apexcharts -->
+ <script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
 
-    <!-- dashboard init -->
-    <script src="{{asset('assets/js/pages/dashboard.init.js')}}"></script>
+ <!-- dashboard init -->
+ <script src="{{asset('assets/js/pages/dashboard.init.js')}}"></script>
 
-    <!-- App js -->
-    <script src="{{asset('assets/js/app.js')}}"></script>
+ <!-- App js -->
+ <script src="{{asset('assets/js/app.js')}}"></script>
+   
+ @yield('script')
 </body>
 
 
