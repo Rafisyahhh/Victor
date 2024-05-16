@@ -9,7 +9,7 @@
         <div class="col-12 col-md-6">
             <h1 class="fw-bold text text-center" style="color:#fde047">VICTOR WORK</h1>
             <p class="text-dark fs-5 text-center">Website lowongan kerja untuk peluang karier di Dunia Informatika.</p>
-            <a href="/lowongan" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
+            <a href="/daftarlowongan" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
         </div>
     </div>
 </div>
