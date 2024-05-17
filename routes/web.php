@@ -10,6 +10,7 @@ use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\datadiriController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,4 +83,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+
+    Route::get('/datadiri', [datadiriController::class, 'index'])->name('datadiri');
+    Route::get('/datadiri/create', [datadiriController::class, 'create'])->name('datadiri.create');
+    Route::post('/datadiri', [datadiriController::class, 'store'])->name('datadiri.store');
+    Route::get('/datadiri/{datadiri}', [datadiriController::class, 'show'])->name('datadiri.show');
+    Route::get('/datadiri/{datadiri}/edit', [datadiriController::class, 'edit'])->name('datadiri.edit');
+    Route::put('/datadiri/{datadiri}', [datadiriController::class, 'update'])->name('datadiri.update');
+    Route::delete('/datadiri/{datadiri}', [datadiriController::class, 'destroy'])->name('datadiri.destroy');
 });

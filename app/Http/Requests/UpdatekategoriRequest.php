@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Route;
 
 class UpdatekategoriRequest extends FormRequest
 {
@@ -19,10 +21,23 @@ class UpdatekategoriRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
-        return [
-            //
+            $id = Route::input('kategori');   
+
+            return [
+                'nama_kategori' => [
+                    'required',
+                    Rule::unique('kategoris', 'nama_kategori')->ignore($id),
+                ],      
+              ];
+    }
+    public function messages()
+    {
+        return[
+            'nama_kategori.required'=>'nama kategori tidak boleh kosong',
+            'nama_kategori.unique'=>'nama sudah di gunakan',    
+
         ];
     }
-}
+}      

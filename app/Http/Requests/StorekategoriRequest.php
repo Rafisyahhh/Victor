@@ -22,14 +22,15 @@ class StorekategoriRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_kategori'=>'required'
+            'nama_kategori'=>'required|unique:kategoris,nama_kategori'
         ];
     }
     public function messages()
     {
         return[
-            'nama_kategori.required'=>'nama kategori tidak boleh kosong'
-     
+            'nama_kategori.required'=>'nama kategori tidak boleh kosong',
+            'nama_kategori.unique'=>'nama sudah di gunakan',    
+
         ];
     }
 }
