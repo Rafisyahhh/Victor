@@ -86,8 +86,12 @@ class KategoriController extends Controller
    
         public function destroy(string $id)
     {
-        $kategori=kategori::where('id','=',$id)->delete();
-        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
+        $kategori = Kategori::findOrFail($id);
+        if ($kategori->perusahaan()->count() > 0) {
+            return redirect()->back()->with('error', 'Gagal menghapus, data ini masih digunakan ditabel lain');
+        }
+        $kategori->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }
 

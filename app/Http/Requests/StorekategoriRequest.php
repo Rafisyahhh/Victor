@@ -29,8 +29,13 @@ class StorekategoriRequest extends FormRequest
     {
         return[
             'nama_kategori.required'=>'nama kategori tidak boleh kosong',
+<<<<<<< Updated upstream
             'nama_kategori.unique'=>'nama sudah di gunakan',    
 
+=======
+            'nama_kategori.unique'=>'nama kategori tidak boleh sama'
+            
+>>>>>>> Stashed changes
         ];
     }
 }

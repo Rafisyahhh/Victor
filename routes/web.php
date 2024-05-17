@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/daftarperusahaan', [PerusahaanController::class, 'indexUser'])->name('daftarperusahaan');
     Route::get('/detailperusahaan{id}', [PerusahaanController::class, 'indexDetail'])->name('detailperusahaan');
     Route::get('/daftarlowongan', [LowonganController::class, 'indexUser'])->name('daftarlowongan');
+    Route::get('/detaillowongan{id}', [LowonganController::class, 'indexDetail'])->name('detaillowongan');
     
     Route::controller(ProfilController::class)->group(function () {
         Route::get('/profil', 'index')->name('profil');

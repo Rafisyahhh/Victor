@@ -89,4 +89,9 @@ class LowonganController extends Controller
         $lowongan = Lowongan::all();
         return view('user.lowongan', compact('lowongan'));
     }
+    public function indexDetail($id)
+    {
+        $lowongan = Lowongan::findOrFail($id);
+        return view('user.detaillowongan', compact('lowongan'));
+    }
 }

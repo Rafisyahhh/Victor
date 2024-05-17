@@ -33,7 +33,7 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Deskripsi:</label>
-            <input type="text" value="{{ old('deskripsi') }}" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi" />
+            <textarea type="text" value="{{ old('deskripsi') }}" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi"></textarea>
             @error('deskripsi')
             <span class="text-danger">{{ $message }}</span>
             @enderror

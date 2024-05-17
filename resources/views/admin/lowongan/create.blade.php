@@ -27,7 +27,7 @@
             @error('tempat_kerja')
             <span class="text-danger">{{ $message }}</span>
             @enderror
-            <label>Waktu Kerja(Jam):</label>
+            <label>Waktu Kerja(Jam/Hari):</label>
             <input type="number" value="{{ old('waktu_kerja') }}" name="waktu_kerja" class="form-control" placeholder="Masukan Waktu Kerja" />
             @error('waktu_kerja')
             <span class="text-danger">{{ $message }}</span>

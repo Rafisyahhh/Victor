@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lowongan;
+use App\Models\Perusahaan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
@@ -11,7 +14,13 @@ class MasterController extends Controller
      */
     public function index()
     {
-        return view('admin.dash');
+        $h = Lowongan::where('id_perusahaan','1')->count();
+        $t = Lowongan::where('id_perusahaan','2')->count();
+        $e = Lowongan::where('id_perusahaan','3')->count();
+        $l = Lowongan::all()->count();
+        $u = User::where('role','user')->count();
+        $p = Perusahaan::all()->count();
+        return view('admin.dash', compact('h', 't', 'e','l','u','p'));
     }
 
     /**

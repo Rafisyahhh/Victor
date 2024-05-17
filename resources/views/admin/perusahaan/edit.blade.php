@@ -34,7 +34,7 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Deskripsi:</label>
-            <input type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi" value="{{ $perusahaan->deskripsi}}" />
+            <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi">{{ $perusahaan->deskripsi}}</textarea>
             @error('deskripsi')
             <span class="text-danger">{{ $message }}</span>
             @enderror

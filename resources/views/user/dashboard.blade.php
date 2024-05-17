@@ -28,21 +28,25 @@
 </div>
 <div class="py-2">
     <h1 class="fs-2 text-center" style="color:#4ade80">Lowongan Pekerjaan</h1>
-    <div class="card-wrapper mt-4" style="display:flex">
-        @foreach ($lowongan as $item)
-        <div class="card rounded mx-auto" style="width: 18rem;background-color:#dcfce7">
-            <img src="{{ asset('image/' . $item->perusahaan->foto) }}" class="card-img-top" alt="{{$item->perusahaan->nama_perusahaan}}">
-            <div class="card-body">
-                <h5 class="card-title text-center fw-semibold">{{ $item->perusahaan->nama_perusahaan }}</h5>
-                <p class="text-dark fs-6 text-center"><i class="bi bi-sticky"></i> Posisi: {{$item->posisi->nama_posisi}}</p>
-                <p class="text-dark fs-6 text-center"><i class="bi bi-cash"></i> Gaji: {{$item->gaji}}</p>
-                <p class="text-dark fs-6 text-center"><i class="bi bi-geo-alt"></i> Tempat: {{$item->tempat_kerja}}</p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <a href="/detaillowongan" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
+    <div class="container">
+        <div class="row">
+            @foreach ($lowongan as $item)
+            <div class="col-3">
+                <div class="card rounded mx-auto" style="width: 18rem;background-color:#dcfce7">
+                    <img src="{{ asset('image/' . $item->perusahaan->foto) }}" class="card-img-top" alt="{{$item->perusahaan->nama_perusahaan}}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center fw-semibold">{{ $item->perusahaan->nama_perusahaan }}</h5>
+                        <p class="text-dark fs-6 text-center"><i class="bi bi-sticky"></i> Posisi: {{$item->posisi->nama_posisi}}</p>
+                        <p class="text-dark fs-6 text-center"><i class="bi bi-cash"></i> Gaji: {{'Rp ' . number_format($item->gaji,2,',','.')}}</p>
+                        <p class="text-dark fs-6 text-center"><i class="bi bi-geo-alt"></i> Tempat: {{$item->tempat_kerja}}</p>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a href="{{ route('detaillowongan', ['id' => $item->id]) }}" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
 <div class="py-2" style="background-color:#ecfdf5">

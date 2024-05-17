@@ -25,10 +25,10 @@
     <div class="container" style="margin-top:75px">
         <div class="row">
             <div class="col-12 col-md-5">
-                <img src="{{asset('image/humma.jpg')}}" alt="" class="image hidden" width="400px" style="border-radius:20px;border-width: 5px;border-color:#4ade80">
+                <img src="{{asset('image/' . $lowongan->perusahaan->foto)}}" alt="{{$lowongan->perusahaan->nama_perusahaan}}" class="image hidden" width="400px" style="border-radius:20px;border-width: 5px;border-color:#4ade80">
             </div>
             <div class="col-12 col-md-7">
-                <h1 class="fw-bold" style="margin-top:100px">PT Hummatech Indonesia</h1>
+                <h1 class="fw-bold" style="margin-top:100px">{{$lowongan->perusahaan->nama_perusahaan}}</h1>
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
@@ -39,11 +39,11 @@
                             <p class="text-dark fs-6"><i class="bi bi-alarm"></i> Waktu Kerja</p>
                         </div>
                         <div class="col-8">
-                            <p class="text-dark fs-6">: Web Development</p>
-                            <p class="text-dark fs-6">: 1.000.000</p>
-                            <p class="text-dark fs-6">: Onsite</p>
-                            <p class="text-dark fs-6">: Malang</p>
-                            <p class="text-dark fs-6">: 8 Jam</p>
+                            <p class="text-dark fs-6">: {{$lowongan->posisi->nama_posisi}}</p>
+                            <p class="text-dark fs-6">: {{'Rp ' . number_format($lowongan->gaji,2,',','.')}}</p>
+                            <p class="text-dark fs-6">: {{$lowongan->ketentuan_kerja}}</p>
+                            <p class="text-dark fs-6">: {{$lowongan->tempat_kerja}}</p>
+                            <p class="text-dark fs-6">: {{$lowongan->waktu_kerja}} Jam</p>
                         </div>
                     </div>
                 </div>

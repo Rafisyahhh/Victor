@@ -125,6 +125,9 @@ class PerusahaanController extends Controller
     public function destroy(string $id)
     {
         $perusahaan = Perusahaan::findOrFail($id);
+        if ($perusahaan->lowongan()->count() > 0) {
+            return redirect()->back()->with('error', 'Gagal menghapus, data ini masih digunakan ditabel lain');
+        }
         if ($perusahaan->foto !== null && file_exists(public_path('image/') . $perusahaan->foto)) {
             unlink(public_path('image/') . $perusahaan->foto);
         }
