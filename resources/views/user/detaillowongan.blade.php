@@ -48,6 +48,7 @@
                     </div>
                 </div>
                 <a href="/perusahaan" class="btn btn-light text-light" style="background-color:#4ade80;">Lamar Kerja</a>
+                <a href="/daftarlowongan" class="btn btn-danger text-light">Kembali</a>
             </div>
         </div>
     </div>

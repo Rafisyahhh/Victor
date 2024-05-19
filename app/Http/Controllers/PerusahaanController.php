@@ -78,7 +78,7 @@ class PerusahaanController extends Controller
             [
                 'nama_perusahaan' => 'required|unique:perusahaans,nama_perusahaan,'. $id . ',id',
                 'nama_kategori' => 'required',
-                'foto' => 'required|image|mimes:jpeg,png,jpg',
+                'foto' => 'nullable|image|mimes:jpeg,png,jpg',
                 'no_telp' => 'required|numeric|unique:perusahaans,no_telp,'. $id . ',id',
                 'deskripsi' => 'required',
             ],
@@ -86,7 +86,6 @@ class PerusahaanController extends Controller
                 'nama_perusahaan.required' => 'perusahaan harus diisi',
                 'nama_perusahaan.unique' => 'Perusahaan sudah ada',
                 'nama_kategori.required' => 'Kategori harus diisi',
-                'foto.required' => 'Form tidak boleh kosong',
                 'foto.image' => 'File harus berupa gambar',
                 'foto.mimes' => 'Format file gambar harus jpeg, png, atau jpg',
                 'no_telp.required' => 'Form tidak boleh kosong',
@@ -96,7 +95,6 @@ class PerusahaanController extends Controller
             ]
         );
         $perusahaan = Perusahaan::findOrFail($id);
-        $namaFoto = null;
         if ($request->hasFile('foto')) {
             //hapus foto sebelumnya
             if ($perusahaan->foto !== null && file_exists(public_path('image/') . $perusahaan->foto)) {
@@ -109,6 +107,7 @@ class PerusahaanController extends Controller
         } else {
             $namaFoto = $perusahaan->foto;
         }
+        
         $perusahaan = Perusahaan::where('id', $id)->update([
             'nama_perusahaan' => $request->nama_perusahaan,
             'id_kategori' => $request->nama_kategori,

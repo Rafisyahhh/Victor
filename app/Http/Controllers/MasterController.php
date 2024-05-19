@@ -6,6 +6,7 @@ use App\Models\Lowongan;
 use App\Models\Perusahaan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 
 class MasterController extends Controller
 {
@@ -14,13 +15,14 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $h = Lowongan::where('id_perusahaan','1')->count();
-        $t = Lowongan::where('id_perusahaan','2')->count();
-        $e = Lowongan::where('id_perusahaan','3')->count();
+        $lowonganPerusahaan = Lowongan::groupBy('id_perusahaan')
+            ->selectRaw('id_perusahaan, count(*) as jumlah_lowongan')
+            ->get();
         $l = Lowongan::all()->count();
-        $u = User::where('role','user')->count();
+        $u = User::where('role', 'user')->count();
         $p = Perusahaan::all()->count();
-        return view('admin.dash', compact('h', 't', 'e','l','u','p'));
+        $pp = Perusahaan::all();
+        return view('admin.dash', compact('lowonganPerusahaan', 'l', 'u', 'p', 'pp'));
     }
 
     /**

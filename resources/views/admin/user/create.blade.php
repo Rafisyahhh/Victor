@@ -19,13 +19,6 @@
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-            <div class="form-group">
-                <label for="role">Role:</label>
-                <select class="form-control" id="role" name="role">
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                </select>
-            </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

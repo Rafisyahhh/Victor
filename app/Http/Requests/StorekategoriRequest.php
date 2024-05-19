@@ -30,7 +30,6 @@ class StorekategoriRequest extends FormRequest
         return[
             'nama_kategori.required'=>'nama kategori tidak boleh kosong',
             'nama_kategori.unique'=>'nama sudah di gunakan',    
-
         ];
     }
 }

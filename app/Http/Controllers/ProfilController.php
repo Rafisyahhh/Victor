@@ -103,7 +103,7 @@ class ProfilController extends Controller
             [
                 'nama' => 'required|string',
                 'jenis_kelamin' => 'required',
-                'avatar' => 'required',
+                'avatar' => 'nullable',
                 'tgl_lahir' => 'required|date|before_or_equal:today',
                 'tempat_lahir' => 'required|string',
                 'no_telp' => 'required|numeric|digits_between:10,12|unique:users,no_telp,' . $id . ',id',

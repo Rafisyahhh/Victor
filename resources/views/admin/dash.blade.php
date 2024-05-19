@@ -97,7 +97,9 @@
   var options = {
     series: [{
       name: 'lowongan',
-      data: [{{$h}}, {{$t}}, {{$e}}]
+      data: [@foreach ($lowonganPerusahaan as $p )
+      '{{$p->jumlah_lowongan}}',
+      @endforeach]
     }],
     chart: {
       type: 'bar',
@@ -119,7 +121,9 @@
       colors: ['transparent']
     },
     xaxis: {
-      categories: ['PT Hummatech Indonesia', 'PT Telkom Indonesia', 'PT HaveDev'],
+      categories: [@foreach ($pp as $p )
+      '{{$p->nama_perusahaan}}',
+      @endforeach],
     },
     yaxis: {
       title: {

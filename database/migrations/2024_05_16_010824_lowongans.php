@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('gaji');
             $table->string('tempat_kerja');
             $table->string('waktu_kerja');
-            $table->foreignId('id_posisi');
+            $table->string('nama_posisi');
             $table->string('ketentuan_kerja');
             $table->timestamps();
         });

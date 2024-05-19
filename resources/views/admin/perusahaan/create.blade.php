@@ -6,7 +6,26 @@
         @csrf
         <div class="form-group">
             <label>Foto:</label>
+            <img src="" id="foto-preview" style="display: none; margin-bottom: 10px; max-width: 100px;" alt="Preview Foto">
             <input type="file" value="{{ old('foto') }}" name="foto" class="form-control" placeholder="Masukan Foto" />
+            <script>
+                const inputFoto = document.querySelector('input[name="foto"]');
+                const previewFoto = document.querySelector('#foto-preview');
+                inputFoto.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewFoto.src = e.target.result;
+                            previewFoto.style.display = 'block';
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        previewFoto.src = "";
+                        previewFoto.style.display = 'none';
+                    }
+                });
+            </script>
             @error('foto')
             <span class="text-danger">{{ $message }}</span>
             @enderror

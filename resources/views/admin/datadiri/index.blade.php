@@ -9,7 +9,6 @@
 
 
             <p class="fw-bold fs-5">Daftar Data Diri</p>
-            <a href="{{ route('user.create') }}" class="btn btn-primary ">Tambah Data Diri</a>
         </div>
 
         <div class="table-responsive">
@@ -17,7 +16,8 @@
 
                 <thead>
                     <tr>
-                    <th>ID</th>
+                    <th>No</th>
+                    <th>Avatar</th>
                     <th>Nama</th>
                     <th>Jenis kelamin</th>
                     <th>Tanggal Lahir</th>
@@ -29,12 +29,13 @@
                 @foreach($user as $datadiri)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
+                        <td><img src="{{ asset('image/' . $datadiri->avatar) }}" alt="{{ $datadiri->nama}}" width="100"></td>
                         <td>{{ $datadiri->nama }}</td>
                         <td>{{ $datadiri->jenis_kelamin}}</td>
                         <td>{{ $datadiri->tgl_lahir }}</td>
                         <td> {{ $datadiri-> tempat_lahir}}</td>
                         <td> {{ $datadiri->no_telp }}</td>
-                        <td> {{ $datadiri->alama }}</td>
+                        <td> {{ $datadiri->alamat }}</td>
                         
                         <td>
                             <a href="{{ route('datadiri.edit', $datadiri->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>

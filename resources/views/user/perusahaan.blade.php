@@ -22,14 +22,14 @@
     <h1 class="fw-bold text-center text-title text-light">Daftar Perusahaan</h1>
     <div class="container">
     @foreach ($perusahaan as $item)
-        <div class="card mb-3 mt-4" style="max-width: 100%;background-color:#dcfce7">
+        <div class="card mb-3 mt-4" style="max-width: 100%;">
             <div class="row g-0">
                 <div class="col-md-2">
                     <img src="{{ asset('image/' . $item->foto) }}" alt="{{ $item->nama}}" width="150" style="border-radius:40px;padding:20px">
                 </div>
                 <div class="col-md-10">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $item->nama_perusahaan }}</h5>
+                        <h5 class="card-title fw-bold">{{ $item->nama_perusahaan }}</h5>
                         <p class="card-text">{{$item->deskripsi}}</p>
                         <a href="{{ route('detailperusahaan', ['id' => $item->id]) }}" class="btn btn-light fs-6 text-light btn-sm" style="background-color:#4ade80">Lihat Perusahaan</a>
                     </div>

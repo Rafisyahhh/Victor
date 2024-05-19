@@ -21,9 +21,6 @@ class DatadiriController extends Controller
      */
     public function create($id)
     {
-        
-        $user = User::findOrFail($id);
-        return view('admin.datadiri.create');
     }
 
     /**
@@ -31,26 +28,7 @@ class DatadiriController extends Controller
      */
     public function store(Request $request, $id)
     {
-        if ($request->hasFile('avatar')) {
-            $foto = $request->file('avatar');
-            $ekstensi = $foto->getClientOriginalExtension();
-            $namaFoto = Str::random(10) . '.' . $ekstensi;
-            $foto->move(public_path('image'), $namaFoto);
-        } else {
-            $namaFoto = null;
-        }
-        $user = User::findOrFail($id);
-        $user->update([
-            'nama' => $request->nama,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'tgl_lahir' => $request->tgl_lahir,
-            'tempat_lahir' => $request->tempat_lahir,
-            'no_telp' => $request->no_telp,
-            'alamat' => $request->alamat,
-            'avatar' => $namaFoto,
-        ]);
-
-        return redirect()->route('profil')->with('success', 'Data diri berhasil dibuat.');
+        
     }
 
 
@@ -68,7 +46,8 @@ class DatadiriController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.datadiri.edit', compact('user'));
     }
 
     /**
@@ -76,7 +55,30 @@ class DatadiriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        if ($request->hasFile('avatar')) {
+            //hapus avatar sebelumnya
+            if ($user->avatar !== null && file_exists(public_path('image/') . $user->avatar)) {
+                unlink(public_path('image/') . $user->avatar);
+            }
+            $foto = $request->file('avatar');
+            $ekstensi = $foto->getClientOriginalExtension();
+            $namaFoto = Str::random(10) . '.' . $ekstensi;
+            $foto->move(public_path('image'), $namaFoto);
+        } else {
+            $namaFoto = $user->avatar;
+        }
+        $user->update([
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tgl_lahir' => $request->tgl_lahir,
+            'tempat_lahir' => $request->tempat_lahir,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+            'avatar'=> $namaFoto
+        ]);
+
+        return redirect()->route('datadiri')->with('success', 'Data diri berhasil diperbarui.');
     }
 
     /**
@@ -84,6 +86,16 @@ class DatadiriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->nama = null;
+        $user->jenis_kelamin = null;
+        $user->tgl_lahir = null;
+        $user->tempat_lahir = null;
+        $user->no_telp = null;
+        $user->alamat = null;
+        $user->avatar = null;
+        $user->save();
+
+        return redirect()->route('datadiri')->with('success', 'Data diri berhasil dihapus.');
     }
 }

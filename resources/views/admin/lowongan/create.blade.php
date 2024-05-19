@@ -32,15 +32,8 @@
             @error('waktu_kerja')
             <span class="text-danger">{{ $message }}</span>
             @enderror
-            <label for="alamat">Posisi: </label>
-            <select name="nama_posisi" class="form-select" id="basicSelect">
-                <option>Pilih Posisi</option>
-                @foreach ($posisi as $o)
-                <option value="{{ $o->id }}" {{ old('nama_posisi') == $o->id ? 'selected' : '' }}>
-                    {{ $o->nama_posisi }}
-                </option>
-                @endforeach
-            </select>
+            <label>Posisi Kerja:</label>
+            <input type="text" value="{{ old('nama_posisi') }}" name="nama_posisi" class="form-control" placeholder="Masukan Nama Posisi" />
             @error('nama_posisi')
             <span class="text-danger">{{ $message }}</span>
             @enderror

@@ -16,13 +16,6 @@
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
-            <div class="form-group">
-                <label for="role">Role:</label>
-                <select class="form-control" id="role" name="role">
-                    <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
-                    <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
-                </select>
-            </div>
             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
         </form>
     </div>

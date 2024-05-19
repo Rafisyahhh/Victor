@@ -7,7 +7,35 @@
         @method('PUT')
         <div class="form-group">
             <label>Foto:</label>
-            <input type="file" name="foto" class="form-control" placeholder="Masukan Foto"/>
+            @if ($perusahaan->foto)
+            <div class="mb-2">
+                <img id="previewImg{{$perusahaan->id}}" src="{{ asset('image/' . $perusahaan->foto) }}" alt="{{ $perusahaan->nama_perusahaan}}" width="100" class="img-thumbnail">
+            </div>
+            @else
+            <div class="mb-2">
+                <img id="previewImg{{$perusahaan->id}}" src="" alt="{{ $perusahaan->nama}}" width="100" class="img-thumbnail d-none">
+            </div>
+            @endif
+            <input type="file" name="foto" class="form-control" placeholder="Masukan Foto" accept="image/*" onchange="previewImage(this, '{{$perusahaan->id}}')" />
+            <script>
+                function previewImage(input, id) {
+                    // console.log(id);
+                    var previewImg = document.getElementById(`previewImg${id}`);
+                    var previewImgBox = document.getElementById(`previewImg${id}`);
+                    var file = input.files[0];
+                    if (file) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewImg.src = e.target.result;
+                            previewImgBox.style.display = 'block';
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        previewImg.src = "";
+                        previewImgBox.style.display = 'none';
+                    }
+                }
+            </script>
             @error('nama_perusahaan')
             <span class="text-danger">{{ $message }}</span>
             @enderror

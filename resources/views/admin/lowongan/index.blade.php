@@ -39,7 +39,7 @@
                         <td>{{'Rp ' . number_format($item->gaji,2,',','.')}}</td>
                         <td>{{ $item->tempat_kerja }}</td>
                         <td>{{ $item->waktu_kerja }} Jam</td>
-                        <td>{{ $item->posisi->nama_posisi }}</td>
+                        <td>{{ $item->nama_posisi }}</td>
                         <td>{{ $item->ketentuan_kerja }}</td>
                         <td class="d-flex  gap-2 justify-content-center">
                             <a href="{{ route('lowongan.edit', $item->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>

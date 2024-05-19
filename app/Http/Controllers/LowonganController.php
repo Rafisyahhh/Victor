@@ -26,9 +26,8 @@ class LowonganController extends Controller
      */
     public function create()
     {
-        $posisi = Posisi::all();
         $perusahaan = Perusahaan::all();
-        return view('admin.lowongan.create', compact('posisi', 'perusahaan'));
+        return view('admin.lowongan.create', compact('perusahaan'));
     }
 
     /**
@@ -41,7 +40,7 @@ class LowonganController extends Controller
             'gaji' => $request->gaji,
             'tempat_kerja' => $request->tempat_kerja,
             'waktu_kerja' => $request->waktu_kerja,
-            'id_posisi' => $request->nama_posisi,
+            'nama_posisi' => $request->nama_posisi,
             'ketentuan_kerja' => $request->ketentuan_kerja,
         ]);
         return redirect()->route("lowongan")->with("success", "Berhasil Menambah Data");
@@ -62,8 +61,7 @@ class LowonganController extends Controller
     {
         $lowongan = Lowongan::findOrFail($id);
         $perusahaan = Perusahaan::all();
-        $posisi = Posisi::all();
-        return view('admin.lowongan.edit', compact('lowongan', 'perusahaan', 'posisi'));
+        return view('admin.lowongan.edit', compact('lowongan', 'perusahaan'));
 
     }
 

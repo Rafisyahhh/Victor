@@ -11,6 +11,7 @@ use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\datadiriController;
+use App\Http\Controllers\IndekController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +23,7 @@ use App\Http\Controllers\datadiriController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.index');
-});
+Route::get('/', [IndekController::class, 'index'])->name('index');
 
 Auth::routes();
 
@@ -63,12 +62,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::delete('/lowongan/destroy/{lowongan}', 'destroy')->name('lowongan.destroy');
     });
     Route::get('/dash', [MasterController::class, 'index'])->name('dash');
-    Route::get('/posisi', [PosisiController::class, 'index'])->name('posisi');
-    Route::get('/posisi/create', [PosisiController::class, 'create'])->name('posisi.create');
-    Route::post('/posisi/store', [PosisiController::class, 'store'])->name('posisi.store');
-    Route::get('/posisi/edit/{posisi}', [PosisiController::class, 'edit'])->name('posisi.edit');
-    Route::put('/posisi/update/{posisi}', [PosisiController::class, 'update'])->name('posisi.update');
-    Route::delete('/posisi/{posisi}', [PosisiController::class, 'destroy'])->name('posisi.destroy');
 
     Route::get('/kategori', [kategoriController::class, 'index'])->name('kategori');
     Route::get('/kategori/create', [kategoriController::class, 'create'])->name('kategori.create');
@@ -86,9 +79,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
     Route::get('/datadiri', [datadiriController::class, 'index'])->name('datadiri');
-    Route::get('/datadiri/create', [datadiriController::class, 'create'])->name('datadiri.create');
-    Route::post('/datadiri', [datadiriController::class, 'store'])->name('datadiri.store');
-    Route::get('/datadiri/{datadiri}', [datadiriController::class, 'show'])->name('datadiri.show');
     Route::get('/datadiri/{datadiri}/edit', [datadiriController::class, 'edit'])->name('datadiri.edit');
     Route::put('/datadiri/{datadiri}', [datadiriController::class, 'update'])->name('datadiri.update');
     Route::delete('/datadiri/{datadiri}', [datadiriController::class, 'destroy'])->name('datadiri.destroy');

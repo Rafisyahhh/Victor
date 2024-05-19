@@ -84,85 +84,27 @@
     <div class="py-2">
         <div class="container">
             <h1 class="fs-2 text-center" style="color:#4ade80">Lowongan Pekerjaan</h1>
-            <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card-wrapper" style="display:flex">
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
+            <div class="container">
+                <div class="row">
+                    @foreach ($lowongan as $item)
+                    <div class="col-3 d-flex justify-content-center">
+                        <div class="card" style="width: 100%">
+                            <div class="card-content">
+                                <img class="mx-auto d-block" style="padding: 10px;" width="150" src="{{ asset('image/' . $item->perusahaan->foto) }}" alt="Card image cap" />
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold">{{ $item->perusahaan->nama_perusahaan }}</h6>
+                                    <p style="font-size:15px">Posisi: {{$item->nama_posisi}}</p>
+                                    <p style="font-size:15px">Gaji: {{'Rp ' . number_format($item->gaji,2,',','.')}}</p>
+                                    <p style="font-size:15px">Tempat: {{$item->tempat_kerja}}</p>
+                                    <div class="d-grid gap-2 mx-auto container" style="width: 100%;padding:20px">
+                                        <a href="/login" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="card-wrapper" style="display:flex">
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mx-auto" style="width: 18rem;background-color:#dcfce7">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center fw-semibold">Card title</h5>
-                                    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <a href="#" class="btn btn-light text-light" style="background-color:#4ade80">Lamar Kerja</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <button class="carousel-control-prev carousel-dark" style="width: 100px;" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next carousel-dark" style="width: 100px;" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </div>
