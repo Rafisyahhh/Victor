@@ -127,6 +127,12 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="{{ route('datadiri') }}" class="waves-effect">
+                                <i class="bx bx-id-card"></i>
+                                <span key="t-user">Data Diri</span>
+                            </a>
+                        </li>
 
                         <li>
                             <a href="user" class="waves-effect">

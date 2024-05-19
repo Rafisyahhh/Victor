@@ -35,7 +35,6 @@ class UpdateLowonganRequest extends FormRequest
     public function messages(): array
     {
         return [
-<<<<<<< Updated upstream
             'nama_perusahaan.required' => 'perusahaan harus diisi',
             'gaji.required' => 'Gaji harus diisi',
             'gaji.min' => 'Gaji tidak boleh kurang dari 0',
@@ -43,9 +42,6 @@ class UpdateLowonganRequest extends FormRequest
             'waktu_kerja.required' => 'Waktu Kerja harus diisi',
             'nama_posisi.required' => 'Posisi harus diisi',
             'ketentuan_kerja.required' => 'Ketentuan Kerja harus diisi',
-=======
-            
->>>>>>> Stashed changes
         ];
     }
 }

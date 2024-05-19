@@ -31,7 +31,6 @@ class UpdatekategoriRequest extends FormRequest
                     Rule::unique('kategoris', 'nama_kategori')->ignore($id),
                 ],      
               ];
-<<<<<<< Updated upstream
     }
     public function messages()
     {
@@ -42,15 +41,3 @@ class UpdatekategoriRequest extends FormRequest
         ];
     }
 }      
-=======
-    }
-    public function messages()
-    {
-        return[
-            'nama_kategori.required'=>'nama kategori tidak boleh kosong',
-            'nama_kategori.unique'=>'nama ketegori sudah di gunakan',    
-
-        ];
-    }
-}
->>>>>>> Stashed changes
