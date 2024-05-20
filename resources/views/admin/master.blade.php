@@ -104,13 +104,13 @@
                         </li>
                         <li>
                             <a href="{{route('lowongan')}}" class="waves-effect">
-                                <i class="bx bxs-widget"></i>
+                                <i class="bx bx-briefcase-alt-2"></i>
                                 <span key="t-chat">Lowongan</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{route('perusahaan')}}" class="waves-effect">
-                                <i class="bx bxs-widget"></i>
+                                <i class="bx bx-buildings"></i>
                                 <span key="t-chat">Perusahaan</span>
                             </a>
                         </li>

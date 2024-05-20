@@ -32,11 +32,11 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
                         <td>
-                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning mr-2 "><i class="fa fa-pen"></i></a>
                             <form action="{{ route('user.destroy', $user->id) }}" class="form-delete" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger" onclick="showConfirmation(this.parentNode)" type="button"><i
+                                <button class="btn btn-danger " onclick="showConfirmation(this.parentNode)" type="button"><i
                                 class="fa fa-trash"></i></button>
                             </form>
                         </td>
