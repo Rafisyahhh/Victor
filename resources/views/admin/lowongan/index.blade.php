@@ -25,6 +25,12 @@
                         <th>Waktu Kerja</th>
                         <th>Posisi Kerja</th>
                         <th>Ketentuan Kerja</th>
+                        <th>Pengalaman</th>
+                        <th>Jenis Kerja</th>
+                        <th>Tipe Kerja</th>
+                        <th>Persyaratan</th>
+                        <th>Jobdesk</th>
+                        <th>Proses Wawancara</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -41,6 +47,12 @@
                         <td>{{ $item->waktu_kerja }} Jam</td>
                         <td>{{ $item->nama_posisi }}</td>
                         <td>{{ $item->ketentuan_kerja }}</td>
+                        <td>{{ $item->pengalaman }}</td>
+                        <td>{{ $item->kerja }}</td>
+                        <td>{{ $item->tipe }}</td>
+                        <td>{{ $item->persyaratan }}</td>
+                        <td>{{ $item->jobdesk }}</td>
+                        <td>{{ $item->proses_wawancara }}</td>
                         <td class="d-flex  gap-2 justify-content-center">
                             <a href="{{ route('lowongan.edit', $item->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
                             <form action="{{ route('lowongan.destroy', $item->id) }}" class="form-delete" method="post">

@@ -52,8 +52,13 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <label>Deskripsi:</label>
-            <textarea type="text" value="{{ old('deskripsi') }}" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi"></textarea>
+            <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi">{{ old('deskripsi') }}</textarea>
             @error('deskripsi')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <label>Alamat:</label>
+            <textarea type="text" name="alamat" class="form-control" placeholder="Masukan Alamat">{{ old('alamat') }}</textarea>
+            @error('alamat')
             <span class="text-danger">{{ $message }}</span>
             @enderror
 

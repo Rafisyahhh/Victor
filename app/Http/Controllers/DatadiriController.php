@@ -55,6 +55,29 @@ class DatadiriController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate(
+            [
+                'nama' => 'required',
+                'jenis_kelamin' => 'required',
+                'tgl_lahir' => 'required',
+                'tempat_lahir' => 'required',
+                'no_telp' => 'required|numeric|unique:perusahaans,no_telp,'. $id . ',id',
+                'alamat' => 'required',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg',
+            ],
+            [
+                'nama.required' => 'Nama harus diisi',
+                'jenis_kelamin.required' => 'Jenis Kelamin harus diisi',
+                'avatar.image' => 'File harus berupa gambar',
+                'avatar.mimes' => 'Format file gambar harus jpeg, png, atau jpg',
+                'no_telp.required' => 'Form tidak boleh kosong',
+                'no_telp.digits_between' => 'No Telp harus 10-12 angka',
+                'no_telp.unique' => 'No Telp sudah digunakan',
+                'tgl_lahir.required' => 'Tanggal Lahir harus diisi',
+                'tempat_lahir.required' => 'Tempat Lahir harus diisi',
+                'alamat.required' => 'Alamat harus diisi',
+            ]
+        );
         $user = User::findOrFail($id);
         if ($request->hasFile('avatar')) {
             //hapus avatar sebelumnya

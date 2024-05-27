@@ -10,7 +10,7 @@ class Lowongan extends Model
     use HasFactory;
     protected $table = 'lowongans';
     protected $primaryKey = 'id';
-    protected $fillable = ['id_perusahaan', 'gaji','tempat_kerja','waktu_kerja','nama_posisi','ketentuan_kerja'];
+    protected $fillable = ['id_perusahaan', 'gaji','tempat_kerja','waktu_kerja','nama_posisi','ketentuan_kerja','pengalaman','tipe','kerja','persyaratan','jobdesk','proses_wawancara'];
     public function perusahaan(){
         return $this->belongsTo(Perusahaan::class, 'id_perusahaan','id');
     }

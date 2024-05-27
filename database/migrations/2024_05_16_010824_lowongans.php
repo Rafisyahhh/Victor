@@ -19,6 +19,12 @@ return new class extends Migration
             $table->string('waktu_kerja');
             $table->string('nama_posisi');
             $table->string('ketentuan_kerja');
+            $table->enum('pengalaman', ['kurang dari 1 tahun', '1-3 tahun', '3-5 tahun', '5-10 tahun','lebih dari 10 tahun']);
+            $table->enum('kerja', ['penuh waktu', 'kontrak', 'magang', 'paruh waktu','harian']);
+            $table->enum('tipe', ['onsite', 'remote']);
+            $table->text('persyaratan');
+            $table->text('jobdesk');
+            $table->text('proses_wawancara');
             $table->timestamps();
         });
     }

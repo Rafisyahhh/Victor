@@ -67,7 +67,7 @@
           <div class="d-flex">
             <div class="flex-grow-1">
               <p class="text-muted fw-medium">Pelamar</p>
-              <h4 class="mb-0">1,235</h4>
+              <h4 class="mb-0">{{$lm}}</h4>
             </div>
             <div class="flex-shrink-0 align-self-center">
               <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
@@ -97,9 +97,10 @@
   var options = {
     series: [{
       name: 'lowongan',
-      data: [@foreach ($lowonganPerusahaan as $p )
-      '{{$p->jumlah_lowongan}}',
-      @endforeach]
+      data: [@foreach($lowonganPerusahaan as $p)
+        '{{$p->jumlah_lowongan}}',
+        @endforeach
+      ]
     }],
     chart: {
       type: 'bar',
@@ -121,9 +122,10 @@
       colors: ['transparent']
     },
     xaxis: {
-      categories: [@foreach ($pp as $p )
-      '{{$p->nama_perusahaan}}',
-      @endforeach],
+      categories: [@foreach($pp as $p)
+        '{{$p->nama_perusahaan}}',
+        @endforeach
+      ],
     },
     yaxis: {
       title: {
@@ -136,7 +138,7 @@
     tooltip: {
       y: {
         formatter: function(val) {
-          return "$ " + val + " lowongan"
+          return val + " lowongan"
         }
       }
     }

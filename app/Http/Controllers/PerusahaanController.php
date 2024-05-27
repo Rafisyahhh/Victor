@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perusahaan;
 use App\Models\Kategori;
+use App\Models\Notif;
 use Illuminate\Support\Str;
 use App\Http\Requests\StorePerusahaanRequest;
 use Illuminate\Http\Request;
@@ -46,6 +47,7 @@ class PerusahaanController extends Controller
             'id_kategori' => $request->nama_kategori,
             'no_telp' => $request->no_telp,
             'deskripsi' => $request->deskripsi,
+            'alamat' => $request->alamat,
             'foto' => $namaFoto,
         ]);
         return redirect()->route("perusahaan")->with("success", "Berhasil Menamabah Data");
@@ -81,6 +83,7 @@ class PerusahaanController extends Controller
                 'foto' => 'nullable|image|mimes:jpeg,png,jpg',
                 'no_telp' => 'required|numeric|unique:perusahaans,no_telp,'. $id . ',id',
                 'deskripsi' => 'required',
+                'alamat' => 'required',
             ],
             [
                 'nama_perusahaan.required' => 'perusahaan harus diisi',
@@ -92,6 +95,7 @@ class PerusahaanController extends Controller
                 'no_telp.digits_between' => 'No Telp harus 10-12 angka',
                 'no_telp.unique' => 'No Telp sudah digunakan',
                 'deskripsi.required' => 'Deskripsi harus diisi',
+                'alamat.required' => 'Alamat harus diisi',
             ]
         );
         $perusahaan = Perusahaan::findOrFail($id);
@@ -113,6 +117,7 @@ class PerusahaanController extends Controller
             'id_kategori' => $request->nama_kategori,
             'no_telp' => $request->no_telp,
             'deskripsi' => $request->deskripsi,
+            'alamat' => $request->alamat,
             'foto' => $namaFoto,
         ]);
         return redirect()->route('perusahaan')->with('success', 'Berhasil Mengubah Data');
@@ -137,12 +142,16 @@ class PerusahaanController extends Controller
     public function indexUser()
     {
         $perusahaan = Perusahaan::all();
-        return view('user.perusahaan', compact('perusahaan'));
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.perusahaan', compact('perusahaan','notif','not'));
     }
     public function indexDetail($id)
     {
         $perusahaan = Perusahaan::findOrFail($id);
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
         // dd($perusahaan);
-        return view('user.detailperusahaan', compact('perusahaan'));
+        return view('user.detailperusahaan', compact('perusahaan','notif','not'));
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePosisiRequest extends FormRequest
+class UpdatedaftarpelamarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,7 @@ class UpdatePosisiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'nama_posisi'=> 'required|unique:posisis,nama_posisi',
-        ];
-    }
-    public function messages(): array
-    {
-        return [
-            'nama_posisi.required' => 'Posisi harus diisi',
-            'nama_posisi.unique' => 'Posisi sudah ada',
+            //
         ];
     }
 }

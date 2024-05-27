@@ -121,6 +121,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('lamaran')}}" class="waves-effect">
+                                <i class="bx bxs-widget"></i>
+                                <span key="t-chat">Daftar Lamaran</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('datadiri') }}" class="waves-effect">
                                 <i class="bx bx-id-card"></i>
                                 <span key="t-user">Data Diri</span>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lowongan;
 use App\Models\Perusahaan;
+use App\Models\lamaran;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
@@ -21,8 +22,9 @@ class MasterController extends Controller
         $l = Lowongan::all()->count();
         $u = User::where('role', 'user')->count();
         $p = Perusahaan::all()->count();
+        $lm = lamaran::all()->count();
         $pp = Perusahaan::all();
-        return view('admin.dash', compact('lowonganPerusahaan', 'l', 'u', 'p', 'pp'));
+        return view('admin.dash', compact('lowonganPerusahaan', 'l', 'u', 'p', 'pp','lm'));
     }
 
     /**

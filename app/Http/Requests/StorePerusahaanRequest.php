@@ -27,6 +27,7 @@ class StorePerusahaanRequest extends FormRequest
             'foto' => 'required|image|mimes:jpeg,png,jpg',
             'no_telp' => 'required|numeric|unique:perusahaans,no_telp',
             'deskripsi' => 'required',
+            'alamat' => 'required',
         ];
     }
     public function messages(): array
@@ -42,6 +43,7 @@ class StorePerusahaanRequest extends FormRequest
             'no_telp.digits_between' => 'No Telp harus 10-12 angka',
             'no_telp.unique' => 'No Telp sudah digunakan',
             'deskripsi.required' => 'Deskripsi harus diisi',
+            'alamat.required' => 'Alamat harus diisi',
         ];
     }
 }

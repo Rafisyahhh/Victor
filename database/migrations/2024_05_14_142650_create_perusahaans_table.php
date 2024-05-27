@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('nama_perusahaan')->uniqid();
             $table->foreignId('id_kategori');
             $table->string('no_telp');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('foto');
+            $table->text('alamat');
             $table->timestamps();
         });
     }
