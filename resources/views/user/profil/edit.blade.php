@@ -63,7 +63,7 @@
 <div class="container" style="margin-top: 100px;">
     <div class="card mt-4">
         <div class="card-header" style="background-color:#4ade80">
-            <h4 class="text-light fw-bold">Tambah Biodata Siswa</h4>
+            <h4 class="text-light fw-bold">Edit data diri</h4>
         </div>
         <div class="card-body">
             <div class="container">

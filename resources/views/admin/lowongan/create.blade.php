@@ -42,7 +42,54 @@
             @error('ketentuan_kerja')
             <span class="text-danger">{{ $message }}</span>
             @enderror
-
+            <label for="alamat">Pengalaman: </label>
+            <select name="pengalaman" class="form-select" id="basicSelect">
+                <option>Pilih Pengalaman</option>
+                <option value="kurang dari 1 tahun" {{ old('pengalaman') == 'kurang dari 1 tahun' ? 'selected' : '' }}>Kurang dari 1 tahun</option>
+                <option value="1-3 tahun" {{ old('pengalaman') == '1-3 tahun' ? 'selected' : '' }}>1-3 tahun</option>
+                <option value="3-5 tahun" {{ old('pengalaman') == '3-5 tahun' ? 'selected' : '' }}>3-5 tahun</option>
+                <option value="5-10 tahun" {{ old('pengalaman') == '5-10 tahun' ? 'selected' : '' }}>5-10 tahun</option>
+                <option value="lebih dari 10 tahun" {{ old('pengalaman') == 'lebih dari 10 tahun' ? 'selected' : '' }}>lebih dari 10 tahun</option>
+            </select>
+            @error('pengalaman')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <label for="alamat">Jenis Kerja: </label>
+            <select name="kerja" class="form-select" id="basicSelect">
+                <option>Pilih Jenis Kerja</option>
+                <option value="penuh waktu" {{ old('kerja') == 'penuh waktu' ? 'selected' : '' }}>penuh waktu</option>
+                <option value="kontrak" {{ old('kerja') == 'kontrak' ? 'selected' : '' }}>kontrak</option>
+                <option value="magang" {{ old('kerja') == 'magang' ? 'selected' : '' }}>magang</option>
+                <option value="paruh waktu" {{ old('kerja') == 'paruh waktu' ? 'selected' : '' }}>paruh waktu</option>
+                <option value="harian" {{ old('kerja') == 'harian' ? 'selected' : '' }}>harian</option>
+            </select>
+            @error('kerja')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <label for="alamat">Tipe Kerja: </label>
+            <select name="tipe" class="form-select" id="basicSelect">
+                <option>Pilih Tipe Kerja</option>
+                <option value="onsite" {{ old('kerja') == 'onsite' ? 'selected' : '' }}>onsite</option>
+                <option value="remote" {{ old('kerja') == 'remote' ? 'selected' : '' }}>remote</option>
+            </select>
+            @error('tipe')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <label>Persyaratan:</label>
+            <textarea type="text" name="persyaratan" class="form-control" placeholder="Masukan Persyaratan Kerja">{{ old('persyaratan') }}</textarea>
+            @error('persyaratan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <label>Jobdesk:</label>
+            <textarea type="text" name="jobdesk" class="form-control" placeholder="Masukan Jobdesk Kerja">{{ old('jobdesk') }}</textarea>
+            @error('jobdesk')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <label>Proses Wawancara:</label>
+            <textarea type="text" name="proses_wawancara" class="form-control" placeholder="Masukan Proses Wawancara">{{ old('proses_wawancara') }}</textarea>
+            @error('proses_wawancara')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
             <div class="d-flex justify-content-end gap-2" style="margin-top: 10px">
 
                 <button type="submit" class="btn btn-primary ml-2">Kirim</button>

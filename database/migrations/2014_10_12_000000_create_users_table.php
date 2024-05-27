@@ -25,6 +25,10 @@ return new class extends Migration
             $table->string('tempat_lahir')->nullable();
             $table->string('no_telp')->nullable();
             $table->string('alamat')->nullable();
+            $table->foreignId('id_pengalaman')->nullable();
+            $table->foreignId('id_keahlian')->nullable();
+            $table->foreignId('id_pendidikan')->nullable();
+            $table->foreignId('id_cv')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

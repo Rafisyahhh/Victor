@@ -21,6 +21,7 @@
                         <th>Kategori Perusahaan</th>
                         <th>No Telp</th>
                         <th>Deskripsi</th>
+                        <th>Alamat</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -33,6 +34,7 @@
                         <td>{{ $item->kategori->nama_kategori }}</td>
                         <td>{{ $item->no_telp }}</td>
                         <td>{{ $item->deskripsi }}</td>
+                        <td>{{ $item->alamat }}</td>
                         <td class="d-flex  gap-2 justify-content-center">
                             <a href="{{ route('perusahaan.edit', $item->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
                             <form action="{{ route('perusahaan.destroy', $item->id) }}" class="form-delete" method="post">

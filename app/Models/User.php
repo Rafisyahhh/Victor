@@ -30,6 +30,10 @@ class User extends Authenticatable
         'tgl_lahir',
         'no_telp',
         'alamat',
+        'id_pengalaman',
+        'id_pendidikan',
+        'id_keahlian',
+        'id_cv',
     ];
 
     /**
@@ -50,4 +54,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function pengalaman(){
+        return $this->belongsTo(Pengalaman::class, 'id_pengalaman','id');
+    }
+    public function pendidikan(){
+        return $this->belongsTo(Pendidikan::class, 'id_pendidikan','id');
+    }
+    public function keahlian(){
+        return $this->belongsTo(Keahlian::class, 'id_keahlian','id');
+    }
+    public function cv(){
+        return $this->belongsTo(Cv::class, 'id_cv','id');
+    }
 }

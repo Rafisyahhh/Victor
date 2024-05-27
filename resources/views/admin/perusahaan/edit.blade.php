@@ -66,6 +66,11 @@
             @error('deskripsi')
             <span class="text-danger">{{ $message }}</span>
             @enderror
+            <label>Alamat:</label>
+            <textarea type="text" name="alamat" class="form-control" placeholder="Masukan Alamat">{{ $perusahaan->alamat}}</textarea>
+            @error('alamat')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
         <div class="d-flex justify-content-end gap-2" style="margin-top: 10px">
 

@@ -51,7 +51,35 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light {{ (\Request::route()->getName() == 'daftarperusahaan') ? 'active fw-bold' : '' }}" href="/daftarperusahaan">Daftar Perusahaan</a>
                     </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-light {{ (\Request::route()->getName() == 'historylamaran') ? 'active fw-bold' : '' }}" href="/historylamaran">History Lamaran</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle fs-6 btn-sm text-light me-2 rounded-pill" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#4ade80">
+                                @if ($not > 0)
+                                <img src="{{'image/notif2.png'}}" alt="" width="20px" style="border-radius:20px;margin-top:7px">
+                                @else
+                                <img src="{{'image/notif1.png'}}" alt="" width="20px" style="border-radius:20px;margin-top:7px">
+                                @endif
+                            </button>
+                            <ul class="dropdown-menu">
+                                @foreach ($notif as $n)
+                                @if ($n->status == 'belum')
+                                @if ($n->id_user == Auth::user()->id)
+                                <li><a class="dropdown-item" style="word-wrap: break-word; white-space: pre-wrap; min-width: 200px;" href="{{ route('notif', $n->id) }}">{{ $n->message }}</a></li>
+                                @endif
+                                @endif
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
+                @if (Auth::user()->role == 'admin')
+                <a href="/dash" class="btn btn-light fs-6 btn-sm text-light me-2 rounded-pill" style="background-color:#86efac">Admin</a>
+                @endif
+
                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                 </a>
@@ -71,6 +99,25 @@
         </div>
     </nav>
     @yield('content')
+    <div class="pt-5 mt-4" style="background-color:#4ade80">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{{'image/vic.png'}}" alt="" width="600px" style="border-radius:20px;">
+                </div>
+                <div class="col-6">
+                    <p class="fs-4 fw-bold text-light">VICTOR WORK</p>
+                    <div class="fs-5 text-light">
+                        Kontrakan Los Santos, Perum Gpa, Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152 <br>
+                        email : victorwork@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#4ade80">
+        <a class="navbar-brand mx-auto mt-3" href="#">2024 &copy; Victor Work</a>
+    </nav>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @foreach ($errors->all() as $message)
     <script>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lowongan;
 use App\Models\Perusahaan;
-use App\Models\Posisi;
+use App\Models\Notif;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,6 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         $lowongan = Lowongan::all();
-        return view('user.dashboard', compact('lowongan'));
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.dashboard', compact('lowongan','notif','not'));
     }
 }

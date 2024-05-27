@@ -64,7 +64,7 @@
             <div class="col-12 col-md-6">
                 <h1 class="fw-bold text text-center" style="color:#fde047">VICTOR WORK</h1>
                 <p class="text-dark fs-5 text-center">Website lowongan kerja untuk peluang karier di Dunia Informatika.</p>
-                <a href="/login" class="btn btn-light mt-4 text-light fs-5" style="background-color:#4ade80;justify-content: center;  align-items: center; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
+                <a href="/login" class="btn btn-light mt-4 text-light fs-5 mx-auto d-block" style="background-color:#4ade80; ">Cari Kerja <i class="bi bi-arrow-right-circle"></i></a>
             </div>
         </div>
     </div>
@@ -108,24 +108,24 @@
             </div>
         </div>
     </div>
-    <div class="py-2" style="background-color:#ecfdf5">
-        <div class="container mt-4">
+    <div class="pt-5 mt-4" style="background-color:#4ade80">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-4">
-                    <img src="{{'image/3d.png'}}" alt="" width="300px" class="">
+                <div class="col-6">
+                    <img src="{{'image/vic.png'}}" alt="" width="600px" style="border-radius:20px;">
                 </div>
-                <div class="col-8 float-end">
-                    <h1 class="fs-2" style="color:#fde047">Punya Lowongan Kerja Seputar IT dan Ingin ditampilkan diweb ini?</h1>
-                    <h1 class="fs-3" style="color:#fde047">Hubungi Admin dibawah ini</h1>
-                    <button class="btn btn-light fs-5 text-light" style="background-color:#4ade80">Hubungi Admin</button>
+                <div class="col-6">
+                    <p class="fs-4 fw-bold text-light">VICTOR WORK</p>
+                    <div class="fs-5 text-light">
+                        Kontrakan Los Santos, Perum Gpa, Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152 <br>
+                        email : victorwork@gmail.com
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark mt-4" style="background-color:#94a3b8">
-        <div class="container-fluid">
-            <a class="navbar-brand mx-auto" href="#">2024 &copy; Victor Work</a>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#4ade80">
+        <a class="navbar-brand mx-auto mt-3" href="#">2024 &copy; Victor Work</a>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

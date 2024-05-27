@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lowongan;
-use App\Models\Posisi;
+use App\Models\Notif;
 use App\Models\Perusahaan;
 use Illuminate\Support\Str;
 use App\Http\Requests\StoreLowonganRequest;
@@ -42,6 +42,12 @@ class LowonganController extends Controller
             'waktu_kerja' => $request->waktu_kerja,
             'nama_posisi' => $request->nama_posisi,
             'ketentuan_kerja' => $request->ketentuan_kerja,
+            'pengalaman' => $request->pengalaman,
+            'kerja' => $request->kerja,
+            'tipe' => $request->tipe,
+            'persyaratan' => $request->persyaratan,
+            'jobdesk' => $request->jobdesk,
+            'proses_wawancara' => $request->proses_wawancara,
         ]);
         return redirect()->route("lowongan")->with("success", "Berhasil Menambah Data");
     }
@@ -85,11 +91,15 @@ class LowonganController extends Controller
     public function indexUser()
     {
         $lowongan = Lowongan::all();
-        return view('user.lowongan', compact('lowongan'));
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.lowongan', compact('lowongan', 'notif','not'));
     }
     public function indexDetail($id)
     {
         $lowongan = Lowongan::findOrFail($id);
-        return view('user.detaillowongan', compact('lowongan'));
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.detaillowongan', compact('lowongan','notif','not'));
     }
 }

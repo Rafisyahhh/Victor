@@ -12,6 +12,15 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\datadiriController;
 use App\Http\Controllers\IndekController;
+use App\Http\Controllers\LamaranController;
+use App\Http\Controllers\DaftarpelamarController;
+use App\Http\Controllers\HistorylamaranController;    
+use App\Http\Controllers\PengalamanController;    
+use App\Http\Controllers\PendidikanController;    
+use App\Http\Controllers\KeahlianController;    
+use App\Http\Controllers\CvController;    
+use App\Http\Controllers\NotifController;    
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +43,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/detailperusahaan{id}', [PerusahaanController::class, 'indexDetail'])->name('detailperusahaan');
     Route::get('/daftarlowongan', [LowonganController::class, 'indexUser'])->name('daftarlowongan');
     Route::get('/detaillowongan{id}', [LowonganController::class, 'indexDetail'])->name('detaillowongan');
+    Route::get('/createlamaran{id}', [LamaranController::class, 'create'])->name('createlamaran');
+    Route::post('/storelamaran', [LamaranController::class, 'store'])->name('lamaran.store');
+    Route::get('/historylamaran', [HistorylamaranController::class, 'index'])->name('historylamaran');
+    Route::post('/createpengalaman{id}', [PengalamanController::class, 'store'])->name('createpengalaman');
+    Route::post('/updatepengalaman{pengalaman}', [PengalamanController::class, 'update'])->name('updatepengalaman');
+    Route::post('/creatependidikan{id}', [PendidikanController::class, 'store'])->name('creatependidikan');
+    Route::post('/updatependidikan{pendidikan}', [PendidikanController::class, 'update'])->name('updatependidikan');
+    Route::post('/createkeahlian{id}', [KeahlianController::class, 'store'])->name('createkeahlian');
+    Route::post('/updatekeahlian{keahlian}', [KeahlianController::class, 'update'])->name('updatekeahlian');
+    Route::post('/createcv{id}', [CvController::class, 'store'])->name('createcv');
+    Route::post('/updatecv{cv}', [CvController::class, 'update'])->name('updatecv');
+    Route::get('/notif{id}', [NotifController::class, 'update'])->name('notif');
     
     Route::controller(ProfilController::class)->group(function () {
         Route::get('/profil', 'index')->name('profil');
@@ -45,6 +66,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/dash', [MasterController::class, 'index'])->name('dash');
     Route::controller(PerusahaanController::class)->group(function () {
         Route::get('/perusahaan', 'index')->name('perusahaan');
         Route::get('/perusahaan/create', 'create')->name('perusahaan.create');
@@ -61,7 +83,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::put('/lowongan/update/{lowongan}', 'update')->name('lowongan.update');
         Route::delete('/lowongan/destroy/{lowongan}', 'destroy')->name('lowongan.destroy');
     });
-    Route::get('/dash', [MasterController::class, 'index'])->name('dash');
 
     Route::get('/kategori', [kategoriController::class, 'index'])->name('kategori');
     Route::get('/kategori/create', [kategoriController::class, 'create'])->name('kategori.create');
@@ -82,4 +103,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/datadiri/{datadiri}/edit', [datadiriController::class, 'edit'])->name('datadiri.edit');
     Route::put('/datadiri/{datadiri}', [datadiriController::class, 'update'])->name('datadiri.update');
     Route::delete('/datadiri/{datadiri}', [datadiriController::class, 'destroy'])->name('datadiri.destroy');
+
+    Route::get('/lamaran', [LamaranController::class, 'index'])->name('lamaran');
+    Route::post('/terima{daftarpelamar}', [DaftarpelamarController::class, 'terima'])->name('lamaran.terima');
+    Route::post('/tolak{daftarpelamar}', [DaftarpelamarController::class, 'tolak'])->name('lamaran.tolak');
 });

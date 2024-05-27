@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Notif;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ProfilController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('user.profil.index', compact('user'));
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.profil.index', compact('user','notif','not'));
     }
 
     /**
@@ -23,7 +26,9 @@ class ProfilController extends Controller
     public function create($id)
     {
         $user = User::findOrFail($id);
-        return view('user.profil.create');
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.profil.create' , compact('user','notif','not'));
     }
 
     /**
@@ -91,7 +96,9 @@ class ProfilController extends Controller
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
-        return view('user.profil.edit', compact('user'));
+        $notif = Notif::orderBy('id', 'desc')->get();
+        $not = Notif::where('id_user', auth()->user()->id)->where('status', 'belum')->get()->count();
+        return view('user.profil.edit', compact('user','notif','not'));
     }
 
     /**
