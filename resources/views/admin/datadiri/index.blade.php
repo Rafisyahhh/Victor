@@ -32,7 +32,7 @@
                         <td><img src="{{ asset('image/' . $datadiri->avatar) }}" alt="{{ $datadiri->nama}}" width="100"></td>
                         <td>{{ $datadiri->nama }}</td>
                         <td>{{ $datadiri->jenis_kelamin}}</td>
-                        <td>{{ $datadiri->tgl_lahir }}</td>
+                        <td>{{ \Carbon\Carbon::parse($datadiri->tgl_lahir)->format('d F Y') }}</td>
                         <td> {{ $datadiri-> tempat_lahir}}</td>
                         <td> {{ $datadiri->no_telp }}</td>
                         <td> {{ $datadiri->alamat }}</td>

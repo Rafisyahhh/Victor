@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-6">
                         <h1 class="fs-5 text-secondary"><strong>Tanggal Lahir</strong></h1>
-                        <h1 class="fs-4">{{ Auth::user()->tgl_lahir }}</h1>
+                        <h1 class="fs-4">{{ \Carbon\Carbon::parse(Auth::user()->tgl_lahir)->format('d F Y') }}</h1>
                         <h1 class="fs-5 text-secondary"><strong>Tempat Lahir</strong></h1>
                         <h1 class="fs-4">{{ Auth::user()->tempat_lahir }}</h1>
                     </div>
@@ -112,7 +112,7 @@
         <div class="col-6">
             <h1 class="fw-bold mt-4" style="color:#4ade80;margin-left:70px">CV</h1>
             @if(Auth::user()->id_cv)
-            <iframe src="{{ asset('image/'. Auth::user()->cv->cv)}}" width="100%" height="600px"></iframe>
+            <iframe src="{{ asset('file/'. Auth::user()->cv->cv)}}" width="100%" height="600px"></iframe>
             @endif
             @if(Auth::user()->id_cv == null)
             <button type="button" class="btn btn-light text-light btn-edit" style="background-color:#4ade80;margin-left:70px" data-bs-toggle="modal" data-bs-target="#tambahModalcv">Tambah CV</button>
@@ -285,7 +285,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Edit CV</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/updatekeahlian{{Auth::user()->id_keahlian}}" method="post" enctype="multipart/form-data">
+            <form action="/updatecv{{Auth::user()->id_cv}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                 <label class="form-label fw-bold">CV</label>

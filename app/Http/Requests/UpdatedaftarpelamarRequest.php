@@ -22,7 +22,13 @@ class UpdatedaftarpelamarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'message'=> 'required',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'message.required'=> 'Alasan tidak boleh kosong',
         ];
     }
 }

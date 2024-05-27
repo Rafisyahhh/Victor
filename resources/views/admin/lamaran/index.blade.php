@@ -34,7 +34,9 @@
                     @foreach ($lamaran as $item)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $item->cv->cv }}</td>
+                        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cvModal{{$item->id}}">
+                                Lihat CV
+                            </button></td>
                         <td>{{ $item->user->nama }}</td>
                         <td>{{ $item->user->no_telp }}</td>
                         <td>{{ $item->lowongan->perusahaan->nama_perusahaan }}</td>
@@ -65,6 +67,22 @@
 
     </div>
 </div>
+<!-- modal cv -->
+@foreach ($lamaran as $item)
+<div class="modal fade" id="cvModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">CV</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <iframe src="{{ asset('file/'. $item->cv->cv)}}" width="100%" height="600px"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 <!-- modal terima -->
 @foreach ($lamaran as $item)
 <div class="modal fade" id="terimaModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
