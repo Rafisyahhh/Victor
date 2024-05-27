@@ -12,7 +12,7 @@
                     <th>Perusahaan</th>
                     <th>Tanggal Melamar</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <th>Detail</th>
                 </tr>
             </thead>
             <tbody>
