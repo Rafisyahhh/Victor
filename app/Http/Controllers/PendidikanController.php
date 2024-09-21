@@ -72,6 +72,6 @@ class PendidikanController extends Controller
      */
     public function destroy(Pendidikan $pendidikan)
     {
-        //
+    
     }
 }

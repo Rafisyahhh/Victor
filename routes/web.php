@@ -19,7 +19,8 @@ use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\PendidikanController;    
 use App\Http\Controllers\KeahlianController;    
 use App\Http\Controllers\CvController;    
-use App\Http\Controllers\NotifController;    
+use App\Http\Controllers\NotifController;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------

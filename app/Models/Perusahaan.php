@@ -14,7 +14,7 @@ class Perusahaan extends Model
     public function kategori(){
         return $this->belongsTo(Kategori::class, 'id_kategori','id');
     }
-    public function lowongan(){
-        return $this->hasMany(Lowongan::class, 'id_perusahaan');
-    }
+                public function lowongan(){
+                    return $this->hasMany(Lowongan::class, 'id_perusahaan');
+                }
 }
